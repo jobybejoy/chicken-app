@@ -1,0 +1,92 @@
+@import '../../../_constants/variables.css';
+
+.text{
+  font-family: var(--base-font-family);
+  font-style: normal;
+  font-weight: normal;
+}
+
+.heading{
+  font-weight: 600;
+  font-style: normal;
+}
+
+.h1{
+  line-height: 64px;
+  font-size: 44px;  
+}
+
+.h2{
+  line-height: 48px;
+  font-size: 32px;
+}
+
+.h3{
+  line-height: 32px;
+  font-size: 24px;
+}
+
+.h4{
+  line-height: 24px;
+  font-size: 18px;
+}
+
+.h5{
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.h6{
+  line-height: 24px;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+}
+
+.body1{
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.text_link{
+  text-decoration-line: underline;
+}
+
+.body2{
+  line-height: 24px;
+  font-size: 14px;
+}
+
+/* NOTE: Can Do Better with body2 semibold */
+.semibold{
+  font-weight: 600;
+}
+
+.subheading{
+  line-height: 40px;
+  font-size: 20px;
+}
+
+.caption{
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.qoute{
+  font-style: italic;
+  line-height: 32px;
+  font-size: 20px;
+}
+
+.buttonText{
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.label{
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 14px;
+}
