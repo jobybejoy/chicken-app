@@ -1,0 +1,33 @@
+.input{
+  border: 2px solid var(--ui-05);
+  padding: 12px 24px;
+  box-sizing: border-box;
+  border-radius: 100px;
+
+  color: var(--text-01);
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input:focus{
+  border: 2px solid var(--brand-01);
+}
+
+.input.small{
+  padding: 6px 12px;
+}
+
+.input.medium{
+  padding: 12px 24px;
+}
+
+.fullWidth{
+  width: 100%;
+}
+
+.input::placeholder{
+  color: var(--text-03);
+  font-weight: 400;
+  text-transform: capitalize;
+}
