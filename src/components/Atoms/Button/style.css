@@ -1,0 +1,124 @@
+/* button{
+  background-color: #545EE1;
+  border: 0;
+  border-radius: 50px;
+  padding: 16px 32px;
+
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+button:hover{
+  background-color: #626DFE;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+} */
+
+
+
+@import '../../../_constants/variables.css';
+
+
+/* TODO Add UI colors into buttons aswell!! */
+
+/* Default button */
+.button {
+  border: 0;
+  outline: 0;
+  border-radius: 50px;
+  cursor: pointer;
+
+  font-family: var(--base-font-family);
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+}
+
+/* Size */
+/* .smallBtn {
+  padding: 0.5em 1em;
+} */
+
+.button.medium{
+  padding: 16px 32px;
+}
+
+/* .largeBtn {
+  padding: 1em 2.4em;
+} */
+
+
+/* Primary Button */
+.primary {
+  color: var(--ui-01);
+  background: var(--brand-01);
+  border: 1px solid var(--brand-01);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.primary:hover{
+  background: var(--hover-primary);
+}
+
+.primary:disabled{
+  color: white;
+  background: var(--color-disabled);
+  border-color: var(--color-disabled); 
+  /* Add Curson disabled */
+}
+
+/* Outline Button */
+.outline {
+  color: var(--brand-01);
+  background: #fff;
+  border: 1px solid var(--brand-01);
+  transition: var(--btn-transtion);
+}
+
+.outline:hover{
+  color: var(--hover-primary);
+  background: var(--tint-primary);
+  border-color: var(--hover-primary); 
+}
+
+.outline:disabled{
+  color: var(--color-disabled);
+  background: white;
+  border-color: var(--color-disabled);
+  /* Add Curson disabled */
+}
+
+/* Text Button */
+.textButton{
+  color: var(--brand-01);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: var(--btn-transtion);
+}
+
+.textButton:hover{
+  background: var(--tint-primary);
+}
+
+.textButton:disabled{
+  color: var(--color-disabled);
+  background: white;
+  /* Add Curson disabled */
+}
+
+.fab{
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: var(--brand-01);
+}
+

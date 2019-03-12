@@ -1,0 +1,54 @@
+:root{
+  
+  /* Colors  */
+
+  /* Brand */
+  --brand-01: #545EE1;
+  --brand-02: #4E4E5A;
+  --brand-03: #727279;
+
+  /* Text */
+  --text-01: #232735;
+  --text-02: #505565;
+  --text-03: #8B90A0;
+  --text-inverse: #FFFFFF;
+
+  /* UI */
+  --ui-01: #FFFFFF;
+  --ui-02: #FAFAFC;
+  --ui-03: #F0F1F3;
+  --ui-04: #D3D4D8;
+  --ui-05: #A1A4B1;
+  --ui-06: #232735;
+  --ui-07: #000000;
+  
+  /* Hover */
+  --hover-primary: #626DFE;
+  --hover-row: #EEEEF1;
+
+  /* Tint */
+  --tint-primary: rgba(98, 108, 254, 0.1);
+
+  /* Disabled */
+  --color-disabled: #D3D4D8;
+  
+  /* Support */
+  --support-info:    #000000;
+  --support-success: #000000;
+  --support-error:   #E1545E;
+  --support-warning: #000000;
+
+  /* Font Styles  */
+  --base-font-family: 'Open Sans';
+
+  --btn-transtion: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+html,*{
+  margin: 0;
+  border: 0;
+}
+
+html{
+  color: var(--text-01);
+}
