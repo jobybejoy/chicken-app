@@ -18,7 +18,6 @@ export const TextVarient = {
   qoute: 'qoute',
   buttonText: 'buttonText',
   label: 'label',
-
   body: 'body',
 }
 
@@ -31,6 +30,7 @@ export const TextComponent = {
   h6: 'h6',
   body: 'p',
   p: 'p',
+  span: 'span',
   a: 'a'
 }
 
@@ -40,12 +40,12 @@ export class Text extends Component {
 
   render() {
 
-    const { varient, component } = this.props;
+    const { varient, component, className } = this.props;
 
     let Component = component ? TextComponent[component] : 'p'
 
     return (
-      <Component className={"text " + TextVarient[varient]}>
+      <Component className={"text " + TextVarient[varient] + " " + className}>
         {this.props.children}
       </Component>
     )
@@ -54,7 +54,7 @@ export class Text extends Component {
 
 Text.defaultProps = {
   varient: 'body1',
-  component: 'body',
+  component: 'span',
 }
 
 export default Text

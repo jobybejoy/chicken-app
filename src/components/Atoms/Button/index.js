@@ -27,7 +27,7 @@ export class Button extends Component {
     const { name } = this.props
     const { type, onClick, varient, size, className, disabled } = this.props
     return (
-      <button className={"button " + ButtonVarient[varient] + " " + ButtonSize[size]}
+      <button className={"button " + ButtonVarient[varient] + " " + ButtonSize[size] + ' ' + className}
         name={name}
         type={ButtonType[type]}
         onClick={() => this.props.onClick}
