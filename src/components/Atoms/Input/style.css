@@ -31,3 +31,7 @@ input:focus{
   font-weight: 400;
   text-transform: capitalize;
 }
+
+.input.error{
+  border: 2px solid var(--support-error);
+}

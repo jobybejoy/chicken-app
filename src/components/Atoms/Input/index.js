@@ -16,10 +16,12 @@ export const InputType = {
 export class Input extends Component {
   render() {
 
-    const { type, placeholder, UISize, name, autofocus, disabled } = this.props
+    const { type, placeholder, UISize, name, error, autofocus, disabled } = this.props
+
+    const errorToggle = error ? 'error' : '';
 
     return (
-      <input className={"input " + InputType[type] + " " + InputSize[UISize]}
+      <input className={"input " + InputType[type] + " " + InputSize[UISize] + " " + errorToggle}
         type={type} placeholder={placeholder} name={name} autofocus={autofocus} disabled={disabled} />
     )
   }
