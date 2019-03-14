@@ -1,0 +1,18 @@
+.FormLabel{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.form.helperText{
+  margin-top: 8px;
+}
+
+.form.helperText.error{
+  color: var(--support-error)
+}
+
+.icon.right{
+  postion: absolute;
+  right: 16px;
+  top: 16px;
+}
