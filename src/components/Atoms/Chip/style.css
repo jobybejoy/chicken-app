@@ -1,0 +1,26 @@
+.chip{
+  background-color: var(--ui-01);
+  border: 1px solid var(--ui-04);
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+
+.chip.default{
+  color: var(--text-03);
+}
+
+.chip.selected{
+  background-color: var(--brand-01);
+  color: var(--ui-01);
+  border-color: var(--brand-01);
+}
+
+.chip:disabled{
+  background-color: var(--color-disabled);
+  color: var(--ui-01);
+  border-color: var(--color-disabled);
+}
+
+.chip.medium{
+  padding: 6px 12px
+}
