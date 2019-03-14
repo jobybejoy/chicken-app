@@ -38,8 +38,20 @@
   --support-error:   #E1545E;
   --support-warning: #000000;
 
+  /* Elevation */
+  --elevation-01: 0px 0px 0px rgba(0,0,0,0);
+  --elevation-02: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  --elevation-03: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  --elevation-04: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  --elevation-05: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  --elevation-06: 0px 10px 24px rgba(0, 0, 0, 0.1);
+
+
   /* Font Styles  */
   --base-font-family: 'Open Sans';
+
+  /* Component Sizes */
+  --fab-size: 48px;
 
   --btn-transtion: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
