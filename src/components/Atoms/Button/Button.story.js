@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 // import { linkTo } from '@storybook/addon-links';
+import SearchIcon from '@material-ui/icons/Search'
 
 import Button from './index';
 
@@ -30,4 +31,9 @@ stories
   .add('Primary Button', () => (<Button varient={'PRIMARY'} name={'primary'} disabled={boolean('Disabled', false)}>{text('Text', 'Primary')}</Button>))
   .add('Outline Button', () => (<Button varient={'OUTLINE'} name={'outline'} disabled={boolean('Disabled', false)}>{text('Text', 'Outline')}</Button>))
   .add('Text Button', () => (<Button varient={'TEXT'} name={'text_btn'} disabled={boolean('Disabled', false)}>{text('Text', 'Text Button')}</Button>))
+  .add('FAB', () => (
+    <Button varient={'FAB'} name={'fab'} disabled={boolean('Disabled', false)}>
+      <SearchIcon />
+    </Button>
+  ))
   ;

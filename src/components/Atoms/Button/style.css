@@ -58,18 +58,18 @@ button:hover{
 
 
 /* Primary Button */
-.primary {
+.button.primary {
   color: var(--ui-01);
   background: var(--brand-01);
   border: 1px solid var(--brand-01);
   transition: color 0.3s ease, background 0.3s ease;
 }
 
-.primary:hover{
+.button.primary:hover{
   background: var(--hover-primary);
 }
 
-.primary:disabled{
+.button.primary:disabled{
   color: white;
   background: var(--color-disabled);
   border-color: var(--color-disabled); 
@@ -77,20 +77,20 @@ button:hover{
 }
 
 /* Outline Button */
-.outline {
+.button.outline {
   color: var(--brand-01);
   background: #fff;
   border: 1px solid var(--brand-01);
   transition: var(--btn-transtion);
 }
 
-.outline:hover{
+.button.outline:hover{
   color: var(--hover-primary);
   background: var(--tint-primary);
   border-color: var(--hover-primary); 
 }
 
-.outline:disabled{
+.button.outline:disabled{
   color: var(--color-disabled);
   background: white;
   border-color: var(--color-disabled);
@@ -98,27 +98,29 @@ button:hover{
 }
 
 /* Text Button */
-.textButton{
+.button.textButton{
   color: var(--brand-01);
   background: transparent;
   border: 1px solid transparent;
   transition: var(--btn-transtion);
 }
 
-.textButton:hover{
+.button.textButton:hover{
   background: var(--tint-primary);
 }
 
-.textButton:disabled{
+.button.textButton:disabled{
   color: var(--color-disabled);
   background: white;
   /* Add Curson disabled */
 }
 
-.fab{
+.button.fab{
   padding: 12px;
-  width: 48px;
-  height: 48px;
+  color: var(--ui-01);
+  width: var(--fab-size);
+  height: var(--fab-size);
   background: var(--brand-01);
+  box-shadow: var(--elevation-03);
 }
 
