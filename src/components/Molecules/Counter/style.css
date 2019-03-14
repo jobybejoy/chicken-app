@@ -1,0 +1,34 @@
+.counter.container{
+  width: 350px;
+  height: var(--fab-size);
+
+  border:2px solid var(--brand-01);
+  
+  border-radius: 100px;
+  box-sizing: border-box;
+  
+  position: relative;
+  
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+.counter .leftBtn{
+  margin-left: -2px;
+  width: var(--fab-size);
+  height: var(--fab-size);
+}
+
+.counter .rightBtn{
+  width: var(--fab-size);
+  height: var(--fab-size);
+  margin-right: -2px;
+}
+
+.counter .itemCount{
+  color: var(--text-02);
+}
