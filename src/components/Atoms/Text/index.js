@@ -29,6 +29,7 @@ export const TextComponent = {
   h5: 'h5',
   h6: 'h6',
   body: 'p',
+  div: 'div',
   p: 'p',
   span: 'span',
   a: 'a'

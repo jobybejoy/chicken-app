@@ -9,7 +9,7 @@ export class ItemCounter extends Component {
     const { name, text } = this.props
     return (
       <React.Fragment>
-        <ChipGroup propData={[15, 30, 45, 60, 75, 100]} />
+        <ChipGroup propData={[15, 30, 45]} />
         <Counter maxCountValue={10} />
       </React.Fragment>
     )
