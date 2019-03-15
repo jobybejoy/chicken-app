@@ -9,31 +9,70 @@ import './style.css'
 
 export class Counter extends Component {
 
-  // TODO : Get the counter working !!
+  state = {
+    count: 0
+  };
+
+  decrementByOne() {
+    if (this.state.count == 0) { return false }
+    this.setState((prevState, { count }) => ({
+      count: prevState.count - 1
+    }));
+  }
+
+  incrementByOne() {
+    this.setState((prevState, { count }) => ({
+      count: prevState.count + 1
+    }));
+  }
+
+  addButton() {
+    return (
+      <Button className={"rightBtn"} varient={'FAB'} onClick={() => {
+        if (this.props.maxCountValue === this.state.count) { return false }
+        this.incrementByOne()
+      }}>
+        <AddIcon />
+      </Button>
+    )
+  }
+
+  subButton() {
+    return (
+      <Button className={"leftBtn"} varient={'FAB'} onClick={() => {
+        this.decrementByOne()
+      }}>
+        <SubIcon />
+      </Button>
+    )
+  }
+
+  // TODO : Work Chip along with this counter!!
+  // TODO : Check whether chip syncs with counter
+  // TODO : When Count is 0 show only Add Button
+
 
   render() {
 
     return (
       <div className={"counter container"}>
-        <Button className={"leftBtn"} varient={'FAB'}>
-          <SubIcon />
-        </Button>
+
+        {this.subButton()}
 
         <Text className={'itemCount'} varient={'caption'}>
-          Chicken 02
+          Chicken {this.state.count}
         </Text>
 
-        <Button className={"rightBtn"} varient={'FAB'}>
-          <AddIcon />
-        </Button>
+        {this.addButton()}
+
       </div>
     )
   }
 }
 
 Counter.defaultProps = {
-
-  onClick: () => { },
+  minCountValue: 0,
+  maxCountValue: null,
 }
 
 export default Counter

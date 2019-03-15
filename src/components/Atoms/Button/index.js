@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 import Text from '../../Atoms/Text'
 
-
+// Recheck button type requiment
 export const ButtonType = {
   BUTTON: 'button',
   RESET: 'reset',
@@ -29,9 +29,8 @@ export class Button extends Component {
     return (
       <button className={"button " + ButtonVarient[varient] + " " + ButtonSize[size] + ' ' + className}
         name={name}
-        type={ButtonType[type]}
-        onClick={() => this.props.onClick}
         disabled={disabled}
+        onClick={() => { onClick() }}
       >
         <Text component="body" varient={'buttonText'}>
           {this.props.children}
@@ -45,7 +44,6 @@ Button.defaultProps = {
   type: 'BUTTON',
   varient: 'PRIMARY',
   size: 'MEDIUM',
-  onClick: () => { },
   disabled: false,
 }
 

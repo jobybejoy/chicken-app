@@ -14,7 +14,7 @@ stories.addDecorator(withKnobs)
     (
       <div>
         <h3>Counter</h3>
-        <Counter />
+        <Counter maxCountValue={10} />
       </div>
     )
   )
