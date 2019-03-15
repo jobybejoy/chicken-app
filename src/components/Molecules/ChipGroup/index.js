@@ -6,6 +6,7 @@ export class ChipGroup extends Component {
 
   // TODO : On click Select the element/ CSS and JS selected value to parent
   // TODO : Horizontal Scroll
+  // TODO : Work Chip along with this counter!!
   // Try React Fragment without div as container.
 
   render() {
@@ -15,7 +16,7 @@ export class ChipGroup extends Component {
       <div className={'chipgroup ' + className}>
         {
           propData.map((d, index) => {
-            return <Chip key={index} text={d.value} />
+            return <Chip key={index} text={d} />
           })
         }
       </div>
@@ -24,7 +25,7 @@ export class ChipGroup extends Component {
 }
 
 ChipGroup.defaultProps = {
-  propData: [{ value: 10 }, { value: 20 }, { value: 30 }],
+  propData: [10, 20, 30, 40, 50],
   onClick: () => { },
   disabled: false,
 }

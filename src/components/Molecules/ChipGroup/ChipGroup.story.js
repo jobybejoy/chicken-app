@@ -14,7 +14,7 @@ stories.addDecorator(withKnobs)
     (
       <div>
         <h3>Chip Group</h3>
-        <ChipGroup propData={[{ value: 20 }, { value: 30 }, { value: 40 }]} />
+        <ChipGroup propData={[20, 30, 40]} />
       </div>
     )
   )
