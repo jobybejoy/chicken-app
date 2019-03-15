@@ -7,7 +7,7 @@ import { withKnobs, text, boolean, number, select, object } from '@storybook/add
 
 import ItemHeader from './index'
 
-const stories = storiesOf('Orgainisms/Card/ItemHeader', module)
+const stories = storiesOf('Organisms/Card/ItemHeader', module)
 
 stories.addDecorator(withKnobs)
   .add('Loading', () =>
