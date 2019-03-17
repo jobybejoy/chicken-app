@@ -49,21 +49,29 @@ export class Counter extends Component {
 
   // TODO : Work Chip along with this counter!!
   // TODO : Check whether chip syncs with counter
-  // TODO : When Count is 0 show only Add Button
+
 
 
   render() {
 
+    if (this.state.count == 0) {
+      return (
+        <div className={"counter"}>
+          {this.addButton()}
+        </div>
+      )
+    }
+
     return (
       <div className={"counter container"}>
 
-        {this.subButton()}
+        {this.addButton()}
 
         <Text className={'itemCount'} varient={'caption'}>
           Chicken {this.state.count}
         </Text>
 
-        {this.addButton()}
+        {this.subButton()}
 
       </div>
     )

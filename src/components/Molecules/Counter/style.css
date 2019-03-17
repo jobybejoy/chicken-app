@@ -1,8 +1,16 @@
-.counter.container{
+.counter{
   width: 350px;
   height: var(--fab-size);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
 
-  border:2px solid var(--brand-01);
+.counter.container{
+
+  border: 2px solid var(--brand-01);
+  border-right-color: red;
+  border-left-color:red; 
   
   border-radius: 100px;
   box-sizing: border-box;
@@ -10,13 +18,12 @@
   position: relative;
   
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 
   justify-content: space-between;
   align-items: center;
-
-
 }
+
 .counter .leftBtn{
   margin-left: -2px;
   width: var(--fab-size);
@@ -26,6 +33,10 @@
 .counter .rightBtn{
   width: var(--fab-size);
   height: var(--fab-size);
+  margin-right: 0px;
+}
+
+.counter.container .rightBtn{
   margin-right: -2px;
 }
 
