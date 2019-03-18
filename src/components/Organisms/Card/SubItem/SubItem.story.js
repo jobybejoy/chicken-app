@@ -30,7 +30,7 @@ stories.addDecorator(withKnobs)
             {
               name: "Meat",
               price: '50 AED',
-              availableQuantity: 235
+              availableCount: 235
             }
           } />
         </div>
