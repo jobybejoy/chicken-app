@@ -16,7 +16,7 @@ stories.addDecorator(withKnobs)
         <div style={object('style', {
           padding: '40px'
         })} >
-          Loading < ItemHeader loading={true} />
+          Loading <ItemHeader loading={true} />
         </div>
       </div >
     )
@@ -27,7 +27,9 @@ stories.addDecorator(withKnobs)
         <div style={object('style', {
           padding: '40px'
         })} >
-          Loading < ItemHeader />
+          Loading <ItemHeader item={
+            { name: "Ducky", url: 'coming sooon' }
+          } />
         </div>
       </div >
     )
