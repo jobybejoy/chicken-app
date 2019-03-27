@@ -41,7 +41,7 @@ export class SubItem extends Component {
           </div>
         </div>
         <div className={'body'}>
-          <ItemCounter />
+          <ItemCounter withChip={false} />
         </div>
       </div>
     )

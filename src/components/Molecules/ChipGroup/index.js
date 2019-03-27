@@ -10,7 +10,14 @@ export class ChipGroup extends Component {
   // Try React Fragment without div as container.
 
   render() {
-    const { propData, className } = this.props;
+    const { propData, className, hide } = this.props;
+
+    if (hide) {
+      return (
+        <div className={'chipgroup hidden ' + className}>
+        </div>
+      )
+    }
 
     return (
       <div className={'chipgroup ' + className}>
@@ -27,6 +34,7 @@ export class ChipGroup extends Component {
 ChipGroup.defaultProps = {
   propData: [10, 20, 30, 40, 50],
   onClick: () => { },
+  hide: false,
   disabled: false,
 }
 

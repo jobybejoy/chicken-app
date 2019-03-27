@@ -15,6 +15,11 @@ stories
       <ItemCounter withChip={true} />
     </div>
   ))
+  .add('without Chip', () => (
+    <div>
+      <ItemCounter withChip={false} />
+    </div>
+  ))
   // .add('Primary Button', () => (<Button varient={'PRIMARY'} name={'primary'} disabled={boolean('Disabled', false)}>{text('Text', 'Primary')}</Button>))
 
   ;

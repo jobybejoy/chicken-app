@@ -2,6 +2,11 @@
   margin: 8px 16px;
 }
 
+.chipgroup.hidden{
+  opacity: 0;
+  height: 47.600px;
+}
+
 /* .chip+.chip{
   margin: 16px;
 } */
