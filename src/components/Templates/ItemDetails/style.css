@@ -1,7 +1,8 @@
 .page.container{ 
   /* max-width: 768px; */
+  /* max-width: 560px; */
 
-  max-width: 560px;
+  max-width: 420px;
   margin: auto;
  
   padding: 16px;
