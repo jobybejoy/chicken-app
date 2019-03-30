@@ -5,6 +5,8 @@ import Button from '../../Atoms/Button'
 import AddIcon from '@material-ui/icons/Add'
 import SubIcon from '@material-ui/icons/Remove'
 
+import MyContext from '../../../_constants/context'
+
 import './style.css'
 
 export class Counter extends Component {
@@ -12,6 +14,19 @@ export class Counter extends Component {
   state = {
     count: 0
   };
+
+  componentDidMount() {
+    if (this.props.value > 0) {
+      if (this.props.value < this.props.maxCountValue) {
+        this.setState({
+          count: this.props.value
+        })
+      } else {
+        console.log('The Count Value > the available value');
+      }
+
+    }
+  }
 
   decrementByOne() {
     if (this.state.count == 0) { return false }
@@ -21,6 +36,7 @@ export class Counter extends Component {
   }
 
   incrementByOne() {
+    if (this.props.maxCountValue === this.state.count) { return false }
     this.setState((prevState, { count }) => ({
       count: prevState.count + 1
     }));
@@ -28,23 +44,18 @@ export class Counter extends Component {
 
   addButton() {
     return (
-      <Button className={"rightBtn"} varient={'FAB'} onClick={() => {
-        if (this.props.maxCountValue === this.state.count) { return false }
-        this.incrementByOne()
-      }}>
+      <Button className={"rightBtn"} varient={'FAB'} onClick={() => { this.incrementByOne(); this.props.onRightBtnClick() }}>
         <AddIcon />
       </Button>
-    )
+    );
   }
 
   subButton() {
     return (
-      <Button className={"leftBtn"} varient={'FAB'} onClick={() => {
-        this.decrementByOne()
-      }}>
+      <Button className={"leftBtn"} varient={'FAB'} onClick={() => { this.decrementByOne() }}>
         <SubIcon />
       </Button>
-    )
+    );
   }
 
   // TODO : Work Chip along with this counter!!
@@ -80,6 +91,7 @@ export class Counter extends Component {
 
 Counter.defaultProps = {
   minCountValue: 0,
+  value: 0,
   maxCountValue: null,
 }
 

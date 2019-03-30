@@ -9,8 +9,6 @@
 .counter.container{
 
   border: 2px solid var(--brand-01);
-  border-right-color: red;
-  border-left-color:red; 
   
   border-radius: 100px;
   box-sizing: border-box;

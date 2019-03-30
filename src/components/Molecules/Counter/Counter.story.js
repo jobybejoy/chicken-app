@@ -14,10 +14,23 @@ stories.addDecorator(withKnobs)
     (
       <div>
         <h3>Counter</h3>
+        <Counter />
+      </div>
+    ))
+  .add('with Max Limit 10', () =>
+    (
+      <div>
+        <h3>Counter</h3>
         <Counter maxCountValue={10} />
       </div>
-    )
-  )
+    ))
+  .add('with Default Value', () =>
+    (
+      <div>
+        <h3>Counter</h3>
+        <Counter value={5} />
+      </div>
+    ))
   ;
 
 
