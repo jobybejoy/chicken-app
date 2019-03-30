@@ -5,8 +5,6 @@ import Button from '../../Atoms/Button'
 import AddIcon from '@material-ui/icons/Add'
 import SubIcon from '@material-ui/icons/Remove'
 
-import MyContext from '../../../_constants/context'
-
 import './style.css'
 
 export class Counter extends Component {
