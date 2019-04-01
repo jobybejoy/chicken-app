@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.minicard.loading .image{
+.minicard.loading .image,.minicard .loading.image{
   width:100%;
   height: calc(100% - 40px);
   background-color: var(--ui-03);

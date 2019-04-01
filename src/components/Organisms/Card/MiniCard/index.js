@@ -8,11 +8,11 @@ export class MiniCard extends Component {
 
   render() {
 
-    const { loading } = this.props;
+    const { loading, name, image, className } = this.props;
 
     if (loading) {
       return (
-        <div className={"minicard container loading"}>
+        <div className={"minicard container loading "}>
           <span className={'image'} />
           <span className={'text'} />
         </div>
@@ -20,9 +20,12 @@ export class MiniCard extends Component {
     }
 
     return (
-      <div className={"minicard container"}>
-        <img src={ItemImage} className={'image'} />
-        <Text className={'text'} varient="body2semibold">Duck</Text>
+      <div className={"minicard container " + (className && className)}>
+        {
+          image ?
+            <img src={ItemImage} className={'image'} /> : <span className={'loading image'} />
+        }
+        <Text className={'text'} varient="body2semibold">{name || 'Duck'}</Text>
       </div>
     )
   }
