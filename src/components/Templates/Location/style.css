@@ -1,0 +1,39 @@
+.location.container{
+  width: 100%;
+  height: 100vh;
+
+  position: relative;
+}
+
+.location.container .map{
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  /* background-color: var(--text-02); */
+}
+
+.location.container .popOver{
+  width:100%;
+  position: absolute;
+  bottom: -200px;
+  /* min-height: 30vh; */
+  
+  margin-top: -16px;
+
+  box-sizing: border-box;
+
+  padding: 32px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: var(--ui-02);
+  box-shadow: var(--elevation-03-reverse);
+}
+
+.location.container .popOver .title,.option_title{
+  font-weight: 700;
+}
+
+.location.container .picker.container{
+  margin-top: 24px;
+}
