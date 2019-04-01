@@ -1,0 +1,24 @@
+
+.picker .option{
+
+  box-sizing: border-box;
+
+  padding: 16px;
+  padding-left: 24px;
+  border: 2px solid var(--ui-04);
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  opacity: 0.6;
+}
+
+.picker .option+.option{
+  margin-top:16px;
+}
+
+.picker .option.selected{
+  border-color: var(--brand-01);
+  opacity: 1;
+}
+
