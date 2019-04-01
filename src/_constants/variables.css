@@ -46,6 +46,7 @@
   --elevation-05: 0px 8px 16px rgba(0, 0, 0, 0.1);
   --elevation-06: 0px 10px 24px rgba(0, 0, 0, 0.1);
 
+  --elevation-03-reverse: 0px -4px 8px rgba(0, 0, 0, 0.1);
 
   /* Font Styles  */
   --base-font-family: 'Open Sans';
