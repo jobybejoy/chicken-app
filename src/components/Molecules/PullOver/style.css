@@ -1,0 +1,37 @@
+.pullOver.container{
+  padding: 32px;
+  background-color: var(--ui-02);
+  box-shadow: var(--elevation-03-reverse);
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  
+  /* position: absolute;
+  bottom: 0;
+  left: 0; */
+
+  margin-top: 32px;
+
+  text-transform: uppercase;
+}
+
+.pullOver.container .content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.pullOver.container .content .total_label,.pullOver.container .content .total_value{
+  font-weight: 700;
+  color: var(--text-02)
+}
+
+.pullOver.container .content .total_value{
+  color: var(--support-error)
+}
+
+.pullOver.container .cta_btn{
+  margin-top: 24px;
+  width: 100%;
+}
