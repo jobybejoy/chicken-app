@@ -1,0 +1,32 @@
+.payment.container{
+   padding: 16px;
+}
+
+.payment.container .category_title{
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 700; 
+}
+
+.payment.container .banner{
+  height: 200px;
+  width: 100%;
+  background-color: var(--ui-03);
+  border-radius: 8px;
+  margin-bottom:16px;
+}
+
+.payment.container .pay_options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.payment.container .pay_options .disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* .payment.container .pay_options .minicard{
+  margin-right:16px;
+} */
