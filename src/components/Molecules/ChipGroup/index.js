@@ -4,13 +4,26 @@ import './style.css'
 
 export class ChipGroup extends Component {
 
-  // TODO : On click Select the element/ CSS and JS selected value to parent
+  // DONE : On click Select the element/ CSS and JS selected value to parent
   // TODO : Horizontal Scroll
   // TODO : Work Chip along with this counter!!
   // Try React Fragment without div as container.
 
+  state = {
+    selected: null
+  }
+
+  componentWillReceiveProps(props) {
+    const { value } = this.props
+    if (value) {
+      this.setState({
+        selected: value
+      })
+    }
+  }
+
   render() {
-    const { propData, className, hide } = this.props;
+    const { options, maxCountValue, className, hide } = this.props;
 
     if (hide) {
       return (
@@ -19,11 +32,45 @@ export class ChipGroup extends Component {
       )
     }
 
+    if (this.props.value > 0) {
+      return (
+        <div className={'chipgroup ' + className}>
+          {
+            options.map((d, index) => {
+              return (
+                <Chip key={index} text={d}
+                  varient={this.props.value == d ? "SELECTED" : "DEFAULT"}
+                  disabled={maxCountValue < d ? true : false}
+                  onClick={() => {
+                    this.setState({
+                      selected: d
+                    })
+                    this.props.onChipSelected(d)
+                  }}
+                />
+              )
+            })
+          }
+        </div>
+      )
+    }
+
     return (
       <div className={'chipgroup ' + className}>
         {
-          propData.map((d, index) => {
-            return <Chip key={index} text={d} />
+          options.map((d, index) => {
+            return (
+              <Chip key={index} text={d}
+                varient={this.state.selected == d ? "SELECTED" : "DEFAULT"}
+                disabled={maxCountValue < d ? true : false}
+                onClick={() => {
+                  this.setState({
+                    selected: d
+                  })
+                  this.props.onChipSelected(d)
+                }}
+              />
+            )
           })
         }
       </div>
@@ -32,8 +79,9 @@ export class ChipGroup extends Component {
 }
 
 ChipGroup.defaultProps = {
-  propData: [10, 20, 30, 40, 50],
+  options: [10, 20, 30, 40, 50],
   onClick: () => { },
+  maxCountValue: 1000,
   hide: false,
   disabled: false,
 }

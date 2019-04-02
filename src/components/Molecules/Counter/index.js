@@ -10,39 +10,48 @@ import './style.css'
 export class Counter extends Component {
 
   state = {
-    count: 0
+    count: 0,
   };
 
   componentDidMount() {
-    if (this.props.value > 0) {
-      if (this.props.value < this.props.maxCountValue) {
+    if (this.props.value !== this.state.count || this.props.value > 0) {
+      this.setState({
+        count: this.props.value
+      })
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.value != this.state.count) {
+      if (props.value > 0 && props.value < props.maxCountValue) {
         this.setState({
-          count: this.props.value
+          count: props.value
         })
       } else {
         console.log('The Count Value > the available value');
       }
-
     }
   }
 
   decrementByOne() {
     if (this.state.count == 0) { return false }
-    this.setState((prevState, { count }) => ({
-      count: prevState.count - 1
-    }));
+    this.setState({
+      count: this.state.count - 1
+    });
+    this.props.onLeftClick(this.state.count - 1);
   }
 
   incrementByOne() {
     if (this.props.maxCountValue === this.state.count) { return false }
     this.setState((prevState, { count }) => ({
-      count: prevState.count + 1
+      count: this.state.count + 1
     }));
+    this.props.onRightClick(this.state.count + 1);
   }
 
   addButton() {
     return (
-      <Button className={"rightBtn"} varient={'FAB'} onClick={() => { this.incrementByOne(); this.props.onRightBtnClick() }}>
+      <Button className={"rightBtn"} varient={'FAB'} onClick={() => { this.incrementByOne(); }}>
         <AddIcon />
       </Button>
     );
@@ -50,7 +59,7 @@ export class Counter extends Component {
 
   subButton() {
     return (
-      <Button className={"leftBtn"} varient={'FAB'} onClick={() => { this.decrementByOne() }}>
+      <Button className={"leftBtn"} varient={'FAB'} onClick={() => { this.decrementByOne(); }}>
         <SubIcon />
       </Button>
     );
@@ -63,11 +72,13 @@ export class Counter extends Component {
 
   render() {
 
-    if (this.state.count == 0) {
+    const { count } = this.state
+
+    if (count == 0) {
       return (
         <div className={"counter"}>
           {this.addButton()}
-        </div>
+        </div >
       )
     }
 
@@ -77,7 +88,7 @@ export class Counter extends Component {
         {this.addButton()}
 
         <Text className={'itemCount'} varient={'caption'}>
-          Chicken {this.state.count}
+          Chicken {count}
         </Text>
 
         {this.subButton()}

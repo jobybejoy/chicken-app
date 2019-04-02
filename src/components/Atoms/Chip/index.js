@@ -19,7 +19,7 @@ export class Chip extends Component {
     const { name, text } = this.props
     const { onClick, varient, size, className, disabled } = this.props
     return (
-      <button className={"chip " + ChipVarient[varient] + " " + ChipSize[size] + " " + className}
+      <button className={"chip " + ChipVarient[varient] + " " + ChipSize[size] + " " + className} onClick={onClick}
         name={name} disabled={disabled}>
         <Text varient={'buttonText'}>
           {text}

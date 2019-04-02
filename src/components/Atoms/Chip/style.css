@@ -24,3 +24,7 @@
 .chip.medium{
   padding: 6px 12px
 }
+
+.chip:focus{
+  outline: none;
+}

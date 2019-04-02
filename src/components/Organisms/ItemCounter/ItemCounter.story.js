@@ -12,12 +12,12 @@ stories.addDecorator(withKnobs);
 stories
   .add('with Chip', () => (
     <div>
-      <ItemCounter withChip={true} />
+      <ItemCounter withChip={true} maxCountValue={70} />
     </div>
   ))
   .add('without Chip', () => (
     <div>
-      <ItemCounter withChip={false} />
+      <ItemCounter withChip={false} maxCountValue={70} />
     </div>
   ))
   // .add('Primary Button', () => (<Button varient={'PRIMARY'} name={'primary'} disabled={boolean('Disabled', false)}>{text('Text', 'Primary')}</Button>))
