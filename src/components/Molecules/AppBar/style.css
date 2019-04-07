@@ -1,0 +1,78 @@
+.AppBar{
+  /* padding: 16px; */
+  padding: 16px 0px;
+  width: 100%;
+  min-height: 60px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  background-color: var(--ui-01)
+}
+
+.AppBar .left,.AppBar .right,.logo{
+  display: flex;
+  align-items: center;
+}
+
+.AppBar .left .logo{
+
+}
+
+.AppBar .logo img{
+  height:64px;
+}
+
+.AppBar .logo .logoName{
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.AppBar .right{
+  padding-right:8px;
+}
+
+.badge.container{
+  width: 24px;
+  height: 24px;
+
+  padding: 8px;
+
+  border-radius: 50px;
+}
+
+.badge.container:hover{
+  background-color: var(--ui-03);
+}
+
+.badge.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.badge .icon{
+  color: var(--ui-05)
+}
+
+.badge .count{
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+
+  line-height: 20px;
+
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  text-align: center;
+  vertical-align: middle;
+
+  color: var(--ui-01);
+  background-color: var(--support-info);
+}
