@@ -25,7 +25,7 @@ export class MiniCard extends Component {
           image ?
             <img src={ItemImage} className={'image'} /> : <span className={'loading image'} />
         }
-        <Text className={'text'} varient="body2semibold">{name || 'Duck'}</Text>
+        <Text className={'text'} varient="body2semibold">{name}</Text>
       </div>
     )
   }

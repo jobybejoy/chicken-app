@@ -29,7 +29,7 @@ stories.addDecorator(withKnobs)
           Active <SubItem item={
             {
               name: "Meat",
-              price: '50 AED',
+              price: 50,
               availableCount: 235
             }
           } />
