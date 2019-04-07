@@ -63,11 +63,13 @@
 .subitem .name{
   color: var(--text-01);
   font-weight: 700;
+  text-align: left;
 }
 
 .subitem .price{
   color: var(--support-error);
   font-weight: 700;
+  text-align: left;
 }
 
 .subitem .available{

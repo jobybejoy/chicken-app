@@ -4,6 +4,8 @@ import ItemCounter from '../../../Organisms/ItemCounter'
 
 import './style.css'
 
+//TODO Price Formating has to be done!!
+
 export class SubItem extends Component {
 
   render() {
@@ -33,7 +35,7 @@ export class SubItem extends Component {
         <div className="header">
           <div className={'item left'}>
             <Text varient={'h3'} component={'div'} className={'name'}>{item.name}</Text>
-            <Text varient={'body2semibold'} component={'div'} className={'price'}>{item.price}</Text>
+            <Text varient={'body2semibold'} component={'div'} className={'price'}>{item.price + " AED"}</Text>
           </div>
           <div className={'item right'}>
             <Text varient={'h4'} component={'div'} className={'available Count'}>{item.availableCount}</Text>
@@ -41,7 +43,7 @@ export class SubItem extends Component {
           </div>
         </div>
         <div className={'body'}>
-          <ItemCounter withChip={false} />
+          <ItemCounter withChip={true} name={item.name} maxCountValue={item.availableCount} />
         </div>
       </div>
     )
