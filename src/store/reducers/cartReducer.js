@@ -40,6 +40,8 @@ const initState = {
 }
 
 let items = {}
+let item = {}
+let subItem = {}
 let itemIndex = null
 let subItemIndex = null
 let subTotal = null
@@ -48,31 +50,85 @@ let total = null
 
 const cartReducer = (state = initState, action) => {
   switch (action.type) {
-    // case 'ADD_ITEM': console.log('ADDING ITEM');
-    //   const { item } = action
-    //   return {
-    //     ...state,
-    //     items: [
-    //       ...state.items,
-    //       item
-    //     ]
-    //   }
 
     // DONE update the Total and subTotal
     // DONE Use let for the variables.
-    // TODO Add subitem, Item
+    // DONE Add subitem, Item
     // TODO Delete / Remove Item ---- Have to figure out ----
 
     case 'ADD_ITEM':
       console.log('ADD ITEM TO CART');
-      // Add Item to cart : Given item is not in cart
-      return {
-        ...state,
-        items: [
-          ...state.items,
-          action.item
-        ]
+
+      // LOGIC
+      //If item in cart
+      // Then if subItem in Cart 
+      //  Do nothing
+      // Else push subItem to cart item
+      //Else push item with subItem to cart
+
+      const { newItem } = action
+
+      items = state.items
+
+      itemIndex = items.findIndex(i => i.name === newItem.name)
+
+      if (itemIndex !== -1) {
+        // ITEM IN CART
+        subItemIndex = items[itemIndex].subItems.findIndex(subItem => subItem.name === newItem.subItem.name)
+        console.log(itemIndex);
+        console.log(subItemIndex);
+
+        if (subItemIndex !== -1) {
+          // Do Nothing
+          console.log('Do nothing');
+        } else {
+          //Push subItem into cart
+          console.log('Push subItem into cart');
+
+          let newSubItem = newItem.subItem
+          newSubItem.count = 1;
+          newSubItem.subPrice = newSubItem.price
+
+          let i = items[itemIndex]
+          console.log('iiiiii', i);
+          i = {
+            ...i,
+            subItems: [
+              ...i.subItems,
+              newSubItem
+            ]
+          }
+          console.log('iiiiii', i);
+
+          // ! Mutating the element have to find alternative!! after v1 !
+          items[itemIndex] = i
+
+          return {
+            ...state,
+            items: items
+          }
+        }
+      } else {
+        // push item with subItem to cart
+        console.log('push item with subItem to cart');
+        return {
+          ...state,
+          items: [
+            ...state.items,
+            {
+              ...newItem,
+              subItems: [{ ...newItem.subItem, count: 1, subPrice: newItem.subItem.price }]
+            }
+          ]
+        }
       }
+      return state
+
+    case 'ADD_SUBITEM':
+      //* Add SubItem to cart 
+      items = state.items
+      itemIndex = items.findIndex((item) => item.name === action.item.name)
+      subItemIndex = items[itemIndex].subItems.findIndex((subItem) => subItem.name === action.item.subItem)
 
     case 'ADD_SUBITEM_COUNT':
       console.log('ADD SUBITEM COUNT TO CART');
@@ -83,6 +139,7 @@ const cartReducer = (state = initState, action) => {
 
       if (items[itemIndex].subItems[subItemIndex].count < items[itemIndex].subItems[subItemIndex].availableCount) {
         items[itemIndex].subItems[subItemIndex].count += 1;
+
         items[itemIndex].subItems[subItemIndex].subPrice += items[itemIndex].subItems[subItemIndex].price
         items[itemIndex].subTotal += items[itemIndex].subItems[subItemIndex].price
       } else {
@@ -107,8 +164,12 @@ const cartReducer = (state = initState, action) => {
 
       if (items[itemIndex].subItems[subItemIndex].count > 0) {
         items[itemIndex].subItems[subItemIndex].count -= 1;
+
+        //IF count is 0 then remove subItem
+
         items[itemIndex].subItems[subItemIndex].subPrice -= items[itemIndex].subItems[subItemIndex].price
         items[itemIndex].subTotal -= items[itemIndex].subItems[subItemIndex].price
+
       } else {
         return {
           ...state,

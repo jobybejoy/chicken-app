@@ -13,6 +13,14 @@ const initState = {
       subItems: [
         { name: 'Meat', price: 20, subPrice: (20 * 10), availableCount: 25, count: 10 },
       ]
+    },
+    {
+      name: "TEST", url: "Comin Soon",
+      subItems: [
+        { name: 'Fish', price: 1, subprice: (1 * 20), availableCount: 223, count: 20 },
+        { name: 'Meat', price: 20, availableCount: 25 },
+        { name: 'Egg', price: 1, subprice: (1 * 20), availableCount: 223, count: 20 },
+      ]
     }
   ]
 }

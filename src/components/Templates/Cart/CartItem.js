@@ -6,10 +6,6 @@ import Counter from '../../Molecules/Counter'
 
 export class CartItem extends Component {
 
-  getSubPrice(count, price) {
-    return count * price;
-  }
-
   render() {
 
     const { item, loading, functions } = this.props;

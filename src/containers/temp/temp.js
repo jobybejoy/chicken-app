@@ -13,8 +13,8 @@ export class Temp extends Component {
     this.props.createItem({ name: 'TEST', url: 'TEST', subItems: [{ name: 'Meat', price: 24, availableCount: 124 }] });
   }
 
-  addItem(value) {
-    this.props.addItem({ name: 'Duck', subItem: 'Meat', value: value });
+  addItem() {
+    this.props.addItem({ name: 'TEST', url: 'TEST', subItem: { name: 'Meat', price: 24, availableCount: 124 } });
   }
 
   render() {
@@ -26,9 +26,7 @@ export class Temp extends Component {
       <div>
         <button onClick={() => { this.onSubmit() }}>ADD ITEM</button>
 
-        <button onClick={() => { this.addItem(30) }}>Add Item TO CART</button>
-        <button onClick={() => { this.addItem(30) }}>SET at 30</button>
-        <button onClick={() => { this.addItem(40) }}>Set at 40</button>
+        <button onClick={() => { this.addItem() }}>Add TEST Item TO CART</button>
 
       </div>
     )
