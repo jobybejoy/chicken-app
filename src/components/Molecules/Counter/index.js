@@ -14,41 +14,41 @@ export class Counter extends Component {
   };
 
   componentDidMount() {
-    if (this.props.value !== this.state.count || this.props.value > 0) {
-      this.setState({
-        count: this.props.value
-      })
-    }
+    // if (this.props.value !== this.state.count || this.props.value > 0) {
+    //   this.setState({
+    //     count: this.props.value
+    //   })
+    // }
   }
 
   componentWillReceiveProps(props) {
-    if (props.value != this.state.count) {
-      if (props.value > 0 && props.value < props.maxCountValue) {
-        this.setState({
-          count: props.value
-        })
-      } else {
-        console.log('The Count Value > the available value');
-      }
-    }
+    // if (props.value != this.state.count) {
+    //   if (props.value > 0 && props.value < props.maxCountValue) {
+    //     this.setState({
+    //       count: props.value
+    //     })
+    //   } else {
+    //     console.log('The Count Value > the available value');
+    //   }
+    // }
   }
 
   decrementByOne() {
-    if (this.state.count == 0) { return false }
-    this.setState({
-      count: this.state.count - 1
-    });
-    this.props.parentUpdate(this.state.count - 1)
-    this.props.onLeftClick()
+    // if (this.state.count == 0) { return false }
+    // this.setState({
+    //   count: this.state.count - 1
+    // });
+    // this.props.parentUpdate(this.state.count - 1)
+    this.props.onLeftBtnClick()
   }
 
   incrementByOne() {
-    if (this.props.maxCountValue === this.state.count) { return false }
-    this.setState((prevState, { count }) => ({
-      count: this.state.count + 1
-    }));
-    this.props.parentUpdate(this.state.count + 1)
-    this.props.onRightClick();
+    // if (this.props.maxCountValue === this.state.count) { return false }
+    // this.setState((prevState, { count }) => ({
+    //   count: this.state.count + 1
+    // }));
+    // this.props.parentUpdate(this.state.count + 1)
+    this.props.onRightBtnClick()
   }
 
   addButton() {
@@ -67,17 +67,12 @@ export class Counter extends Component {
     );
   }
 
-  // TODO : Work Chip along with this counter!!
-  // TODO : Check whether chip syncs with counter
-
-
-
   render() {
 
     const { count } = this.state
-    const { name } = this.props
+    const { name, value } = this.props
 
-    if (count == 0) {
+    if (value == 0) {
       return (
         <div className={"counter"}>
           {this.addButton()}
@@ -91,7 +86,7 @@ export class Counter extends Component {
         {this.addButton()}
 
         <Text className={'itemCount'} varient={'caption'}>
-          {name} {count}
+          {name} {value}
         </Text>
 
         {this.subButton()}
@@ -102,12 +97,11 @@ export class Counter extends Component {
 }
 
 Counter.defaultProps = {
-  minCountValue: 0,
   value: 0,
   maxCountValue: null,
-  name: 'Chicken',
-  onRightClick: () => { },
-  onLeftClick: () => { },
+  name: '',
+  onRightBtnClick: () => { },
+  onLeftBtnClick: () => { },
   parentUpdate: () => { }
 }
 

@@ -7,7 +7,7 @@ export class Cart extends Component {
 
   render() {
 
-    const { cart, loading } = this.props;
+    const { cart, loading, functions } = this.props;
 
     return (
       <div className={"page container"}>
@@ -15,7 +15,7 @@ export class Cart extends Component {
         {
           cart.items.map((item, index) => {
             return (
-              <CartItem item={item} key={index} />
+              <CartItem item={item} key={index} functions={functions} />
             )
           })
         }

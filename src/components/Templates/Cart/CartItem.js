@@ -12,7 +12,7 @@ export class CartItem extends Component {
 
   render() {
 
-    const { item, loading } = this.props;
+    const { item, loading, functions } = this.props;
     const { name } = item
 
     return (
@@ -32,8 +32,8 @@ export class CartItem extends Component {
                 </div>
                 <div className="sub_item_body">
                   <Counter maxCountValue={subItem.availableCount} value={subItem.count} name={subItem.name}
-                    onRightBtnClick={null}
-                    onLeftBtnClick={null}
+                    onRightBtnClick={() => { functions.addCount({ name: item.name, subItem: subItem.name }) }}
+                    onLeftBtnClick={() => { functions.subCount({ name: item.name, subItem: subItem.name }) }}
                   />
                 </div>
               </div>
