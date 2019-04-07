@@ -25,7 +25,7 @@ stories.addDecorator(withKnobs)
               url: "Comin Soon",
               subItems: [
                 { name: 'Meat', price: 20, subPrice: (20 * 10), availableCount: 25, count: 10 },
-                { name: 'Egg', price: 1, subprice: (1 * 20), availableCount: 223, count: 20 },
+                { name: 'Egg', price: 1, subPrice: (1 * 20), availableCount: 223, count: 20 },
               ]
             },
             {

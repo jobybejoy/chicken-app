@@ -13,6 +13,7 @@ export class CartItem extends Component {
   render() {
 
     const { item, loading } = this.props;
+    const { name } = item
 
     return (
       <div className={"cart_item"}>
@@ -21,16 +22,16 @@ export class CartItem extends Component {
           <Text className={'item_name'} varient={'h3'} component={'div'}>{item.name}</Text>
         </div>
         {
-          item.subItems.map((subItem) => {
+          item.subItems.map((subItem, index) => {
             return (
 
-              <div className="sub_item">
+              <div className="sub_item" key={index}>
                 <div className="sub_item_header">
                   <Text className={'name'} varient={'h4'} component={'div'}>{subItem.name}</Text>
-                  <Text className={'price'} varient={'h5'} component={'div'}>{this.getSubPrice(subItem.count, subItem.price) + " AED"}</Text>
+                  <Text className={'price'} varient={'h5'} component={'div'}>{subItem.subPrice + " AED"}</Text>
                 </div>
                 <div className="sub_item_body">
-                  <Counter maxCountValue={subItem.availableCount} value={subItem.count}
+                  <Counter maxCountValue={subItem.availableCount} value={subItem.count} name={subItem.name}
                     onRightBtnClick={null}
                     onLeftBtnClick={null}
                   />

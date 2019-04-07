@@ -11,10 +11,11 @@ export class Cart extends Component {
 
     return (
       <div className={"page container"}>
+
         {
-          cart.items.map((item) => {
+          cart.items.map((item, index) => {
             return (
-              <CartItem item={item} />
+              <CartItem item={item} key={index} />
             )
           })
         }
