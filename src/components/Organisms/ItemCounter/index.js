@@ -37,9 +37,9 @@ export class ItemCounter extends Component {
     const { maxCountValue } = this.state
     return (
       <React.Fragment>
-        <ChipGroup options={[15, 30, 45, 60, 75]} value={this.state.count} hide={this.state.count <= 0 || !withChip} maxCountValue={maxCountValue}
+        <ChipGroup options={[15, 30, 45, 60, 75, 90, 105]} value={this.state.count} hide={this.state.count <= 0 || !withChip} maxCountValue={maxCountValue}
           onChipSelected={this.updateCount} />
-        <Counter value={this.state.count} maxCountValue={maxCountValue} onRightClick={this.updateCount} onLeftClick={this.updateCount} />
+        <Counter value={this.state.count} name={name} maxCountValue={maxCountValue} parentUpdate={this.updateCount} />
       </React.Fragment>
     )
   }
@@ -47,7 +47,8 @@ export class ItemCounter extends Component {
 
 ItemCounter.defaultProps = {
   onClick: () => { },
-  withChip: true
+  withChip: true,
+  name: 'Chicken'
 }
 
 export default ItemCounter

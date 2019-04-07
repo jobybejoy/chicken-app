@@ -38,7 +38,8 @@ export class Counter extends Component {
     this.setState({
       count: this.state.count - 1
     });
-    this.props.onLeftClick(this.state.count - 1);
+    this.props.parentUpdate(this.state.count - 1)
+    this.props.onLeftClick()
   }
 
   incrementByOne() {
@@ -46,7 +47,8 @@ export class Counter extends Component {
     this.setState((prevState, { count }) => ({
       count: this.state.count + 1
     }));
-    this.props.onRightClick(this.state.count + 1);
+    this.props.parentUpdate(this.state.count + 1)
+    this.props.onRightClick();
   }
 
   addButton() {
@@ -73,6 +75,7 @@ export class Counter extends Component {
   render() {
 
     const { count } = this.state
+    const { name } = this.props
 
     if (count == 0) {
       return (
@@ -88,7 +91,7 @@ export class Counter extends Component {
         {this.addButton()}
 
         <Text className={'itemCount'} varient={'caption'}>
-          Chicken {count}
+          {name} {count}
         </Text>
 
         {this.subButton()}
@@ -102,6 +105,10 @@ Counter.defaultProps = {
   minCountValue: 0,
   value: 0,
   maxCountValue: null,
+  name: 'Chicken',
+  onRightClick: () => { },
+  onLeftClick: () => { },
+  parentUpdate: () => { }
 }
 
 export default Counter
