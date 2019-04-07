@@ -9,6 +9,11 @@
   padding: 16px;
 }
 
+.home.container a{
+  text-decoration: none;
+  color: inherit
+}
+
 .home.container .minicard{
   margin: 8px;
 }
