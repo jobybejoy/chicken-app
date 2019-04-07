@@ -34,23 +34,25 @@ export class ChipGroup extends Component {
 
     if (this.props.value > 0) {
       return (
-        <div className={'chipgroup ' + className}>
-          {
-            options.map((d, index) => {
-              return (
-                <Chip key={index} text={d}
-                  varient={this.props.value == d ? "SELECTED" : "DEFAULT"}
-                  disabled={maxCountValue < d ? true : false}
-                  onClick={() => {
-                    this.setState({
-                      selected: d
-                    })
-                    this.props.onChipSelected(d)
-                  }}
-                />
-              )
-            })
-          }
+        <div className="view_zone">
+          <div className={'chipgroup ' + className}>
+            {
+              options.map((d, index) => {
+                return (
+                  <Chip key={index} text={d}
+                    varient={this.props.value == d ? "SELECTED" : "DEFAULT"}
+                    disabled={maxCountValue < d ? true : false}
+                    onClick={() => {
+                      this.setState({
+                        selected: d
+                      })
+                      this.props.onChipSelected(d)
+                    }}
+                  />
+                )
+              })
+            }
+          </div>
         </div>
       )
     }
