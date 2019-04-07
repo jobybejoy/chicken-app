@@ -18,15 +18,13 @@ stories.addDecorator(withKnobs)
     (
       <ItemDetails
         item={{
-          name: 'Ducky',
-          url: 'coming soon'
-        }}
-        subitems={
-          [
-            { name: "Meat", price: '50 AED', availableCount: 25 },
-            { name: "Egg", price: "01 AED", availableCount: 200 }
+          name: "Duck",
+          url: "Comin Soon",
+          subItems: [
+            { name: 'Meat', price: 20, subPrice: (20 * 10), availableCount: 25, count: 10 },
+            { name: 'Egg', price: 1, subprice: (1 * 20), availableCount: 223, count: 20 },
           ]
-        }
+        }}
       />
     ));
 

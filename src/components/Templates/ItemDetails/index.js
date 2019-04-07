@@ -5,10 +5,12 @@ import SubItem from '../../../components/Organisms/Card/SubItem'
 
 export class ItemDetails extends Component {
 
-
   render() {
 
-    const { item, subitems, loading } = this.props;
+    const { item } = this.props;
+    const { loading } = this.props
+
+    const { subItems } = item;
 
     if (loading) {
       return (
@@ -22,8 +24,8 @@ export class ItemDetails extends Component {
     return (
       <div className={"page container"}>
         <ItemHeader className={'contain-item'} item={item} />
-        {subitems.map((item) => {
-          return <SubItem className={'contain-item'} item={item} />
+        {subItems && subItems.map((subItem) => {
+          return <SubItem className={'contain-item'} item={subItem} />
         })}
       </div>
     )
@@ -31,14 +33,7 @@ export class ItemDetails extends Component {
 }
 
 ItemDetails.defaultProps = {
-  item: {
-    name: 'Ducky',
-    url: 'coming soon'
-  },
-  subitems: [
-    { name: "Meat", price: '50 AED', availableCount: 25 },
-    { name: "Egg", price: "01 AED", availableCount: 200 }
-  ],
+  item: {},
   loading: false,
 }
 
