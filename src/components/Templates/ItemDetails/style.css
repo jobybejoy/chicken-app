@@ -1,9 +1,15 @@
-.page.container{ 
+.itemDetails.container{ 
   /* max-width: 768px; */
   /* max-width: 560px; */
 
-  max-width: 420px;
-  margin: auto;
+  /* max-width: 420px;
+  margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* padding:16px; */
  
   /* padding: 16px; */
   
@@ -14,7 +20,7 @@
 
 
 .contain-item{
-  width: calc(100% - 32px);
+  width: calc(100% - 32px); justify-content: center;
   min-width: 340px;
   margin-top: 16px;
 }

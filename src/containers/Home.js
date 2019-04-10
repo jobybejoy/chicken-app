@@ -7,19 +7,22 @@ import { compose } from 'redux'
 import HomeComponent from '../components/Templates/Home'
 
 
+
 //* Delete the TEMP only for TEST purpouse
 import Temp from '../containers/temp/temp'
 import { NavBar } from './temp/NavBar';
 
 export class Home extends Component {
   render() {
+    const { cart } = this.props
+
     console.log("IN HOME RENDER", this.props);
 
     const { items, auth } = this.props
 
     return (
       <React.Fragment>
-        <Temp />
+        {/* <Temp /> */}
         <HomeComponent items={items} />
       </React.Fragment>
     )
@@ -28,7 +31,9 @@ export class Home extends Component {
 
 const MapStateToProps = (state) => {
   return {
-    items: state.firestore.ordered.items,
+    // items: state.firestore.ordered.items,
+    cart: state.cart,
+    items: state.items.items,
     auth: state.firebase.auth
   }
 }
