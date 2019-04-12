@@ -33,7 +33,7 @@ export class ItemCounter extends Component {
   }
 
   render() {
-    const { name, text, withChip, count, functions, item, subItem } = this.props
+    const { name, withChip, count, functions, item, subItem } = this.props
     const { maxCountValue } = this.state
     return (
       <React.Fragment>

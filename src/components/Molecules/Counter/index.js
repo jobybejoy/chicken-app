@@ -78,10 +78,10 @@ export class Counter extends Component {
 
   render() {
 
-    const { count } = this.state
+    // const { count } = this.state
     const { name, value } = this.props
 
-    if (value == 0) {
+    if (value === 0) {
       return (
         <div className={"counter"}>
           {this.addButton(value)}
