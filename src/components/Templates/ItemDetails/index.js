@@ -7,8 +7,7 @@ export class ItemDetails extends Component {
 
   render() {
 
-    const { item } = this.props;
-    const { loading } = this.props
+    const { item, loading, subItemsCartCount, functions } = this.props
 
     const { subItems } = item;
 
@@ -24,8 +23,8 @@ export class ItemDetails extends Component {
     return (
       <div className={"page container"}>
         <ItemHeader className={'contain-item'} item={item} />
-        {subItems && subItems.map((subItem) => {
-          return <SubItem className={'contain-item'} item={subItem} />
+        {subItems && subItems.map((subItem, index) => {
+          return <SubItem className={'contain-item'} functions={functions} count={subItemsCartCount[index] || 0} item={item} subItem={subItem} />
         })}
       </div>
     )

@@ -33,13 +33,18 @@ export class ItemCounter extends Component {
   }
 
   render() {
-    const { name, text, withChip } = this.props
+    const { name, text, withChip, count, functions, item, subItem } = this.props
     const { maxCountValue } = this.state
     return (
       <React.Fragment>
-        <ChipGroup options={[15, 30, 45, 60, 75, 90, 105]} value={this.state.count} hide={this.state.count <= 0 || !withChip} maxCountValue={maxCountValue}
-          onChipSelected={this.updateCount} />
-        <Counter value={this.state.count} name={name} maxCountValue={maxCountValue} parentUpdate={this.updateCount} />
+        <ChipGroup options={[15, 30, 45, 60, 75, 90, 105]} value={count} hide={count <= 0 || !withChip} maxCountValue={maxCountValue}
+          onChipSelected={(value) => { functions.setItemValue({ name: item.name, subItem: subItem.name }, value) }} />
+        <Counter value={count} name={name} maxCountValue={maxCountValue}
+          onFirstAddClick={() => { functions.addItem({ ...this.props.item, subItem: { name: subItem.name } }) }}
+          onLastRemoveClick={() => { functions.removeItem({ name: this.props.item.name, subItem: { name: subItem.name } }) }}
+          onRightBtnClick={() => { functions.addCount({ name: item.name, subItem: subItem.name }) }}
+          onLeftBtnClick={() => { functions.subCount({ name: item.name, subItem: subItem.name }) }}
+          parentUpdate={this.updateCount} />
       </React.Fragment>
     )
   }

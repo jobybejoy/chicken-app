@@ -5,7 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 import CartComponent from '../components/Templates/Cart'
-import { addCountToSubItem, subtractCountToSubItem } from '../store/actions/cartActions'
+import { addCountToSubItem, subtractCountToSubItem, addItem, removeItem } from '../store/actions/cartActions'
 
 //* Remove This is temp
 import Temp from './temp/temp'
@@ -18,11 +18,13 @@ export class Cart extends Component {
 
     return (
       <React.Fragment>
-        <Temp />
+        {/* <Temp /> */}
         <CartComponent cart={cart} functions={
           {
             addCount: (item) => this.props.addCount({ name: item.name, subItem: item.subItem }),
-            subCount: (item) => this.props.subCount({ name: item.name, subItem: item.subItem })
+            subCount: (item) => this.props.subCount({ name: item.name, subItem: item.subItem }),
+            addItem: (item) => this.props.addItem(item),
+            removeItem: (item) => this.props.removeItem(item)
           }
         } />
       </React.Fragment>
@@ -40,7 +42,9 @@ const MapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addCount: (item) => dispatch(addCountToSubItem(item)),
-    subCount: (item) => dispatch(subtractCountToSubItem(item))
+    subCount: (item) => dispatch(subtractCountToSubItem(item)),
+    addItem: (item) => dispatch(addItem(item)),
+    removeItem: (item) => dispatch(removeItem(item))
   }
 }
 

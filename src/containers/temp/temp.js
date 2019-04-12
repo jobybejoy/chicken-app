@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { createItem } from '../../store/actions/itemsActions'
 import { connect } from 'react-redux'
 
-import { addItem } from '../../store/actions/cartActions'
+import { addItem, removeItem } from '../../store/actions/cartActions'
 
 
 export class Temp extends Component {
@@ -17,6 +17,10 @@ export class Temp extends Component {
     this.props.addItem({ name: 'TEST', url: 'TEST', subItem: { name: 'Meat', price: 24, availableCount: 124 } });
   }
 
+  removeItem() {
+    this.props.removeItem({ name: 'Duck', url: 'TEST', });
+  }
+
   render() {
 
     // console.log(this.props);
@@ -28,6 +32,8 @@ export class Temp extends Component {
 
         <button onClick={() => { this.addItem() }}>Add TEST Item TO CART</button>
 
+        <button onClick={() => { this.removeItem() }}>REMOVE CHICKEN MEAT</button>
+
       </div>
     )
   }
@@ -36,7 +42,8 @@ export class Temp extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     createItem: (item) => dispatch(createItem(item)),
-    addItem: (item) => dispatch(addItem(item))
+    addItem: (item) => dispatch(addItem(item)),
+    removeItem: (item) => dispatch(removeItem(item))
   }
 }
 

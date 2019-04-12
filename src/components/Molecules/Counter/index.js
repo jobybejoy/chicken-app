@@ -33,35 +33,44 @@ export class Counter extends Component {
     // }
   }
 
-  decrementByOne() {
+  decrementByOne(count) {
     // if (this.state.count == 0) { return false }
     // this.setState({
     //   count: this.state.count - 1
     // });
     // this.props.parentUpdate(this.state.count - 1)
-    this.props.onLeftBtnClick()
+    if (count === 1) {
+      this.props.onLastRemoveClick()
+    } else {
+      this.props.onLeftBtnClick()
+    }
   }
 
-  incrementByOne() {
+  incrementByOne(count) {
     // if (this.props.maxCountValue === this.state.count) { return false }
     // this.setState((prevState, { count }) => ({
     //   count: this.state.count + 1
     // }));
     // this.props.parentUpdate(this.state.count + 1)
-    this.props.onRightBtnClick()
+    if (count === 0) {
+      this.props.onFirstAddClick()
+    } else {
+      this.props.onRightBtnClick()
+    }
+
   }
 
-  addButton() {
+  addButton(count) {
     return (
-      <Button className={"rightBtn"} varient={'FAB'} onClick={() => { this.incrementByOne(); }}>
+      <Button className={"rightBtn"} varient={'FAB'} onClick={() => { this.incrementByOne(count); }}>
         <AddIcon />
       </Button>
     );
   }
 
-  subButton() {
+  subButton(count) {
     return (
-      <Button className={"leftBtn"} varient={'FAB'} onClick={() => { this.decrementByOne(); }}>
+      <Button className={"leftBtn"} varient={'FAB'} onClick={() => { this.decrementByOne(count); }}>
         <SubIcon />
       </Button>
     );
@@ -75,7 +84,7 @@ export class Counter extends Component {
     if (value == 0) {
       return (
         <div className={"counter"}>
-          {this.addButton()}
+          {this.addButton(value)}
         </div >
       )
     }
@@ -83,13 +92,13 @@ export class Counter extends Component {
     return (
       <div className={"counter container"}>
 
-        {this.addButton()}
+        {this.addButton(value)}
 
         <Text className={'itemCount'} varient={'caption'}>
           {name} {value}
         </Text>
 
-        {this.subButton()}
+        {this.subButton(value)}
 
       </div>
     )

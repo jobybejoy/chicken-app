@@ -96,9 +96,8 @@ const cartReducer = (state = initState, action) => {
 
 
       return state
-      break;
 
-    case 'ADD_FIRST_TIME_ITEM':
+    case 'ADD_ITEM':
       console.log('ADD ITEM TO CART');
 
       // LOGIC
@@ -110,7 +109,7 @@ const cartReducer = (state = initState, action) => {
 
       const { newItem } = action
 
-      items = [...state.items]
+      items = state.items
 
       itemIndex = items.findIndex(i => i.name === newItem.name)
 
@@ -127,11 +126,11 @@ const cartReducer = (state = initState, action) => {
           //Push subItem into cart
           console.log('Push subItem into cart');
 
-          let newSubItem = newItem.subItems.find(it => it.name === newItem.subItem.name)
+          let newSubItem = newItem.subItem
           newSubItem.count = 1;
           newSubItem.subPrice = newSubItem.price
 
-          let i = { ...items[itemIndex] }
+          let i = items[itemIndex]
           console.log('iiiiii', i);
           i = {
             ...i,
@@ -158,7 +157,6 @@ const cartReducer = (state = initState, action) => {
         // items = action.items
         // item = items.find(i => i.name === newItem.name)
         // subItem = item.find(s => s.name === newItem.subItem.name)
-        const newSubItem = newItem.subItems.find(it => it.name === newItem.subItem.name)
 
         return {
           ...state,
@@ -167,21 +165,19 @@ const cartReducer = (state = initState, action) => {
             {
               name: newItem.name,
               url: newItem.url,
-              subItems: [{ ...newSubItem, count: 1, subPrice: newSubItem.price }],
+              subItems: [{ ...newItem.subItem, count: 1, subPrice: newItem.subItem.price }],
               subTotal: newItem.subItem.price
             }
           ]
         }
       }
-      // return state
-      break;
+      return state
 
-    // case 'ADD_SUBITEM':
-    //   //* Add SubItem to cart 
-    //   items = state.items
-    //   itemIndex = items.findIndex((item) => item.name === action.item.name)
-    //   subItemIndex = items[itemIndex].subItems.findIndex((subItem) => subItem.name === action.item.subItem)
-    //   break
+    case 'ADD_SUBITEM':
+      //* Add SubItem to cart 
+      items = state.items
+      itemIndex = items.findIndex((item) => item.name === action.item.name)
+      subItemIndex = items[itemIndex].subItems.findIndex((subItem) => subItem.name === action.item.subItem)
 
     case 'ADD_SUBITEM_COUNT':
       console.log('ADD SUBITEM COUNT TO CART');
@@ -212,9 +208,7 @@ const cartReducer = (state = initState, action) => {
     case 'SUBT_SUBITEM_COUNT':
       console.log('SUBTRCT SUBITEM COUNT TO CART');
 
-      items = [...state.items]
-      console.log('Items', items);
-
+      items = state.items
       itemIndex = items.findIndex((item) => item.name === action.item.name)
       subItemIndex = items[itemIndex].subItems.findIndex((subItem) => subItem.name === action.item.subItem)
 
@@ -246,8 +240,8 @@ const cartReducer = (state = initState, action) => {
       itemIndex = items.findIndex((item) => item.name === action.item.name)
       subItemIndex = items[itemIndex].subItems.findIndex((subItem) => subItem.name === action.item.subItem)
 
-      if (action.value !== items[itemIndex].subItems[subItemIndex].count) {
-        items[itemIndex].subItems[subItemIndex].count = action.value;
+      if (action.item.value !== items[itemIndex].subItems[subItemIndex].count) {
+        items[itemIndex].subItems[subItemIndex].count = action.item.value;
         items[itemIndex].subItems[subItemIndex].subPrice = items[itemIndex].subItems[subItemIndex].price * items[itemIndex].subItems[subItemIndex].count
 
         subTotal = 0; total = 0;

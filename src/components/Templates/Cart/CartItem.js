@@ -28,6 +28,8 @@ export class CartItem extends Component {
                 </div>
                 <div className="sub_item_body">
                   <Counter maxCountValue={subItem.availableCount} value={subItem.count} name={subItem.name}
+                    onFirstAddClick={() => { functions.addItem({ ...this.props.item, subItem: { name: subItem.name } }) }}
+                    onLastRemoveClick={() => { functions.removeItem({ name: this.props.item.name, subItem: { name: subItem.name } }) }}
                     onRightBtnClick={() => { functions.addCount({ name: item.name, subItem: subItem.name }) }}
                     onLeftBtnClick={() => { functions.subCount({ name: item.name, subItem: subItem.name }) }}
                   />
