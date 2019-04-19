@@ -12,15 +12,11 @@ const stories = storiesOf('Templates/Location', module)
 stories.addDecorator(withKnobs)
   .add('Loading', () =>
     (
-      <div className="page container">
-        <Location loading={true} />
-      </div>
+      <Location loading={true} />
     ))
   .add('Active', () =>
     (
-      <div className="page container">
-        <Location />
-      </div>
+      <Location />
     ));
 
 

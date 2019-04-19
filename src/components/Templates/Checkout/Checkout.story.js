@@ -12,14 +12,19 @@ const stories = storiesOf('Templates/Checkout', module)
 stories.addDecorator(withKnobs)
   .add('Loading', () =>
     (
-      <div className="page container">
-        <Checkout loading={true} />
+      <div className="App">
+        <div className="page container">
+          <Checkout loading={true} />
+        </div>
       </div>
+
     ))
   .add('Active', () =>
     (
-      <div className="page container">
-        <Checkout />
+      <div className="app">
+        <div className="page container">
+          <Checkout />
+        </div>
       </div>
     ));
 
