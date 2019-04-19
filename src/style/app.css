@@ -1,7 +1,18 @@
-.App{
+/* .App{
   width: 420px;
   justify-content: center;
   margin: auto;
   box-sizing: border-box;
   padding-bottom: 64px;
+} */
+.App{
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.page.container{
+  padding:16px
 }
