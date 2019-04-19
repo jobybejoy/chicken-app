@@ -11,10 +11,12 @@ export class BadgeIcon extends Component {
     return (
       <div className='badge container'>
         <div className="badge item">
-          <CartIcon className='icon' />
           {
             count > 0 &&
-            <Text className='count' varient='caption' component='div'><span>{this.props.count}</span></Text>
+            <React.Fragment>
+              <CartIcon className='icon' />
+              <Text className='count' varient='caption' component='div'><span>{this.props.count}</span></Text>
+            </React.Fragment>
           }</div>
       </div>
     )
