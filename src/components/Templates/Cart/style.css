@@ -64,3 +64,11 @@
 .cart_item+.cart_item{
   margin-top: 16px;
 }
+
+/* Cart Empty */
+.cart.empty{
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

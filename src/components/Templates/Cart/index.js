@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import CartItem from './CartItem';
+import CartEmpty from './CartEmpty'
 
 export class Cart extends Component {
 
@@ -8,6 +9,14 @@ export class Cart extends Component {
   render() {
 
     const { cart, loading, functions } = this.props;
+
+    if (cart.items.length === 0) {
+      return (
+        <div className={"page container"}>
+          <CartEmpty />
+        </div>
+      )
+    }
 
     return (
       <div className={"page container"}>
@@ -31,6 +40,7 @@ Cart.defaultProps = {
     },
     items: []
   },
+  total: 0,
   loading: false,
 }
 
