@@ -5,6 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 import CartComponent from '../components/Templates/Cart'
+import PullOver from '../components/Molecules/PullOver'
 import { addCountToSubItem, subtractCountToSubItem, addItem, removeItem } from '../store/actions/cartActions'
 
 //* Remove This is temp
@@ -27,6 +28,11 @@ export class Cart extends Component {
             removeItem: (item) => this.props.removeItem(item)
           }
         } />
+
+        <PullOver {...this.props}
+          label="Total" price={cart.total + ' AED'}
+          cta_label="CHECKOUT" cta_to="/location" />
+
       </React.Fragment>
     )
   }
