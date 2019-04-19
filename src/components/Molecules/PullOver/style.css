@@ -1,18 +1,25 @@
 .pullOver.container{
-  padding: 32px;
+  /* padding: 32px; */
+  padding: 24px;
   background-color: var(--ui-02);
   box-shadow: var(--elevation-03-reverse);
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  
-  /* position: absolute;
-  bottom: 0;
-  left: 0; */
+  box-sizing: border-box;
 
-  margin-top: 32px;
+  /* margin-top: 32px; */
+  position:fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 
   text-transform: uppercase;
+}
+
+.pullContainer{
+  max-width: 420px;
+  padding-bottom: 178px
 }
 
 .pullOver.container .content{
