@@ -21,9 +21,10 @@ const itemsList = [
 
 
 const initState = {
-  items: itemsList,
-  // items: [],
-  total: 820,
+  // items: itemsList,
+  items: [],
+  // total: 420,
+  total: 0,
   cartError: ''
 }
 
@@ -44,6 +45,7 @@ const cartReducer = (state = initState, action) => {
     // DONE Add subitem, Item
     // DONE Delete / Remove Item ---- Have to figure out ----
     // TODO make all the methods with immutablilty 
+    // ! Issue last remove doesnt subtract from total 
 
     case 'REMOVE_ITEM':
       items = state.items
@@ -62,20 +64,25 @@ const cartReducer = (state = initState, action) => {
             if (otherSubItems.length === 0) {
               console.log('Last SubItem, So Remove Item');
               const otherItems = items.filter(i => action.item.name !== i.name)
+              const price = items[itemIndex].subItems[subItemIndex].price
+
               return {
                 ...state,
-                items: otherItems
+                items: otherItems,
+                total: state.total - price
               }
             } else {
               console.log('More than One SubItem, Remove SubItem');
-              let newTotal = items[itemIndex].subItems[subItemIndex].price * items[itemIndex].subItems[subItemIndex].count
+              const price = items[itemIndex].subItems[subItemIndex].price
+              let newSubTotal = price * items[itemIndex].subItems[subItemIndex].count
 
               items[itemIndex].subItems = otherSubItems
-              items[itemIndex].subTotal -= newTotal
+              items[itemIndex].subTotal -= newSubTotal
 
               return {
                 ...state,
-                items: items
+                items: items,
+                total: state.total - price
               }
             }
 
@@ -87,7 +94,8 @@ const cartReducer = (state = initState, action) => {
           const otherItems = items.filter(i => action.item.name !== i.name)
           return {
             ...state,
-            items: otherItems
+            items: otherItems,
+
           }
         }
       } else {
@@ -131,6 +139,7 @@ const cartReducer = (state = initState, action) => {
           newSubItem.count = 1;
           newSubItem.subPrice = newSubItem.price
 
+
           let i = { ...items[itemIndex] }
           console.log('iiiiii', i);
           i = {
@@ -138,7 +147,8 @@ const cartReducer = (state = initState, action) => {
             subItems: [
               ...i.subItems,
               newSubItem
-            ]
+            ],
+            subTotal: i.subTotal + newSubItem.price,
           }
           console.log('iiiiii', i);
 
@@ -147,7 +157,8 @@ const cartReducer = (state = initState, action) => {
 
           return {
             ...state,
-            items: items
+            items: items,
+            total: state.total + newSubItem.price
           }
         }
       } else {
@@ -168,9 +179,10 @@ const cartReducer = (state = initState, action) => {
               name: newItem.name,
               url: newItem.url,
               subItems: [{ ...newSubItem, count: 1, subPrice: newSubItem.price }],
-              subTotal: newItem.subItem.price
+              subTotal: newSubItem.price
             }
-          ]
+          ],
+          total: state.total + newSubItem.price
         }
       }
       // return state

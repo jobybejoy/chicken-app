@@ -66,8 +66,14 @@
   padding:0 4px;
   text-align: center;
   border-radius: 50px;
-  background-color: var(--ui-05);
-  color: var(--text-inverse);
+  background-color: var(--ui-03);
+  /* color: var(--text-inverse); */
+  color: var(--text-02);
+}
+
+.checkout.container .subItem .price{
+  min-width: 62px;
+  text-align: right;
 }
 
 .subTotal{
@@ -95,3 +101,26 @@
 .locationCard.container .title{
   margin-bottom: 8px;
 }
+
+.checkout.container .price_container{
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 16px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+.cart_total{
+  padding:2px 8px;
+  text-align: center;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--support-error);
+}
+
+.cart_total_label{
+  font-weight: 700;
+  color: var(--text-02);
+  margin-right:40px
+}
+

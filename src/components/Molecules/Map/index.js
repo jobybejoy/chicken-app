@@ -40,9 +40,8 @@ class Map extends Component {
           }))
         }
       )
-
     } else {
-      error => console.log(error)
+      // error => console.log(error)
     }
   }
 

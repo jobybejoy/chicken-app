@@ -10,7 +10,7 @@ import LocationCard from './LocationCard'
 export class Checkout extends Component {
   render() {
 
-    const { items } = this.props
+    const { items, total, address } = this.props
 
     return (
       <div className="checkout container">
@@ -20,8 +20,12 @@ export class Checkout extends Component {
             <CheckoutItem item={item} />
           )
         })}
+        <div className="price_container">
+          <Text className={'cart_total_label'} varient={'body'} component='span'>Total</Text>
+          <Text className={'cart_total'} varient={'body'} component='span'>{total + ' AED' || 0 + ' AED'}</Text>
+        </div>
         <Text className={'category_title'} varient='h3' component='div'>Delivery</Text>
-        <LocationCard title={'home'} address={'Lizzy Bunglow, Karuvatta, Adoor, Pathanamthitta, Kerala, India 691523'} />
+        <LocationCard title={address.title || 'home'} address={address.fullAddress || 'Lizzy Bunglow, Karuvatta, Adoor, Pathanamthitta, Kerala, India 691523'} />
       </div>
     )
   }

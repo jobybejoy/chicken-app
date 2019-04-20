@@ -18,6 +18,8 @@ import GoogleSignIn from '../containers/temp/Sign/GoogleLogin'
 import AppBar from '../components/Molecules/AppBar'
 
 import Cart from '../containers/Cart'
+import Location from '../containers/Location'
+import Checkout from '../containers/Checkout'
 
 class App extends Component {
   render() {
@@ -37,6 +39,9 @@ class App extends Component {
             <Route path="/google" component={GoogleSignIn} />
 
             <Route path="/cart" component={Cart} />
+            <Route path="/location" component={Location} />
+            <Route path="/checkout" component={Checkout} />
+
 
             {/* Auth Route Works!! */}
             <AuthRoute path='/gold' component={Home} />

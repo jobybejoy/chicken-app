@@ -8,17 +8,20 @@
 .location.container .map{
   height: 100vh;
   width: 100%;
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  /* top: 0; */
   /* background-color: var(--text-02); */
 }
 
 .location.container .popOver{
   width:100%;
   position: absolute;
-  bottom: -200px;
-  /* min-height: 30vh; */
+  bottom: -20%;
+  /* top:60%; */
   
+  /* bottom: -10%;
+  min-height: 30vh;
+   */
   margin-top: -16px;
 
   box-sizing: border-box;
@@ -36,4 +39,9 @@
 
 .location.container .picker.container{
   margin-top: 24px;
+}
+
+.location.container .cta_btn{
+  width: 100%;
+  margin-top: 32px;
 }

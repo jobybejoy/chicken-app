@@ -1,6 +1,7 @@
 import authReducer from './authReducer'
 import itemsReducer from './itemsReducer'
 import cartReducer from './cartReducer'
+import userReducer from './userReducer'
 
 import { combineReducers } from 'redux'
 
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   items: itemsReducer,
   cart: cartReducer,
+  user: userReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 })
