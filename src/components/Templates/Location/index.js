@@ -34,7 +34,7 @@ export class Location extends Component {
           <Button className="cta_btn" varient={'PRIMARY'} name={'primary'} onClick={() => { this.props.history.push('/checkout') }}>CHECKOUT</Button>
           {/* ADD NeW LOCATION */}
         </div>
-      </div>
+      </div >
     )
   }
 }
