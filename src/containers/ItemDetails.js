@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
+import PullOver from '../components/Molecules/PullOver'
 import ItemDetailsComponent from '../components/Templates/ItemDetails'
 
 import { addCountToSubItem, subtractCountToSubItem, addItem, removeItem, setCountToSubItem } from '../store/actions/cartActions'
@@ -12,7 +13,7 @@ export class ItemDetails extends Component {
 
   render() {
 
-    const { item, subItemsCartCount } = this.props
+    const { item, subItemsCartCount, cartItem } = this.props
 
     if (item) {
       return (
@@ -28,6 +29,13 @@ export class ItemDetails extends Component {
               }
             }
           />
+          {
+            cartItem &&
+            <PullOver {...this.props}
+              label="Sub Total" price={cartItem ? cartItem.subTotal + ' AED' : '0 AED'}
+              cta_label="CART" cta_to="/cart" />
+          }
+
         </React.Fragment>
       )
     } else {
@@ -67,6 +75,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     item: item,
+    cartItem: cartItem,
     subItemsCartCount: subItemsCartCount
   }
 }

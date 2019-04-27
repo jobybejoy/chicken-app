@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
+import PullOver from '../components/Molecules/PullOver'
 import CheckoutComponent from '../components/Templates/Checkout'
 
 export class Checkout extends Component {
@@ -12,6 +13,9 @@ export class Checkout extends Component {
     return (
       <div>
         <CheckoutComponent items={items} total={total} address={address} />
+        <PullOver {...this.props}
+          label="Total" price={total + ' AED'}
+          cta_label="PAY" cta_to="/payment" />
       </div>
     )
   }
