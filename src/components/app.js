@@ -20,6 +20,8 @@ import AppBar from '../components/Molecules/AppBar'
 import Cart from '../containers/Cart'
 import Location from '../containers/Location'
 import Checkout from '../containers/Checkout'
+import Payment from '../containers/Payment'
+import Order from '../containers/Order'
 
 class App extends Component {
   render() {
@@ -41,7 +43,8 @@ class App extends Component {
             <Route path="/cart" component={Cart} />
             <Route path="/location" component={Location} />
             <Route path="/checkout" component={Checkout} />
-
+            <Route path="/payment" component={Payment} />
+            <Route path="/order" component={Order} />
 
             {/* Auth Route Works!! */}
             <AuthRoute path='/gold' component={Home} />
