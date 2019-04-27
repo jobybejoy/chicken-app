@@ -30,3 +30,8 @@
 /* .payment.container .pay_options .minicard{
   margin-right:16px;
 } */
+
+.payment.container a{
+  text-decoration: none;
+  color: inherit
+}
