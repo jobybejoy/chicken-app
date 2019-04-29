@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
+import { withFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
 
 export class AuthRoute extends Component {
 
   render() {
     console.log('IN AUTH ROUTE', this.props);
     const { children, path, component, auth } = this.props
-    if (!auth.uid) {
-      return <Redirect to='/signin' />
+
+    if (isEmpty(auth)) {
+      return <Redirect to='/login' />
     }
+
     return (
       <Route path={path} component={component} />
     )
