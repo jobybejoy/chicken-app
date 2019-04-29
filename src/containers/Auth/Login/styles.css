@@ -1,0 +1,29 @@
+.unauthed.container{
+  width: 100%;
+  height: 75vh;
+  
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.unauthed.container .banner{
+  width: calc(100% - 32px);
+  height: 360px;
+  background-color: var(--ui-03);
+  border-radius: 8px;
+  margin: 16px 0;
+  margin-bottom: 32px;
+}
+
+.unauthed.container .socialLoginButton{
+  margin: 8px 0;
+}
+
+.authed.container{
+  width: 100%;
+  padding:16px;
+  box-sizing: border-box;
+}
+
