@@ -1,0 +1,107 @@
+.miniprofile.container{
+  padding: 32px;
+  background-color: var(--ui-02);
+  box-shadow: var(--elevation-03);
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* max-width: 200px; */
+  /* width: calc(100% - 32px); */
+
+  border-radius: 8px;
+}
+
+/* MiniProfile Loading */
+
+.miniprofile .photo.loading{
+  background-color: var(--ui-03);
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.miniprofile .name.loading{
+  width: 100px;
+  height: 20px;
+  margin-top: 16px ;
+  border-radius: 50px;
+  background-color: var(--ui-03);
+}
+
+.miniprofile .email.loading{
+  width: 150px;
+  height: 16px;
+  margin-top: 16px ;
+  border-radius: 50px;
+  background-color: var(--ui-03);
+}
+
+/* MiniProfile */
+
+.miniprofile .photo img{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.miniprofile .photo{
+  position: relative;
+}
+
+.miniprofile .photo .provider{
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 100px;
+
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  
+}
+
+.miniprofile .photo .provider.facebook{
+  background-color: #4267b2;
+}
+
+.miniprofile .photo .provider img{
+  width: 24px;
+  height: 24px;
+}
+
+.miniprofile .name{
+  margin-top: 16px;
+  color: var(--text-03);
+  font-weight: bold;
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-style: normal;
+  line-height: 28px;
+}
+
+.miniprofile .email{
+  color: var(--text-03);
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+/* Children Styling */
+
+.miniprofile .otherItems{
+  margin-top: 16px;
+  /* color: var(--text-03) */
+}
+
+.miniprofile .otherItems .nextPage{
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top:8px;
+}
