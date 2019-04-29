@@ -10,19 +10,26 @@ export const InputSize = {
 export const InputType = {
   TEXT: 'text',
   EMAIL: 'email',
-  TELE: 'tel',
+  TEL: 'tel',
+  NUMBER: 'number'
 }
 
 export class Input extends Component {
   render() {
 
-    const { type, placeholder, UISize, name, error, autofocus, disabled } = this.props
+    const { type, value, placeholder, UISize, name, error, autofocus, disabled } = this.props
 
     const errorToggle = error ? 'error' : '';
 
     return (
       <input className={"input " + InputType[type] + " " + InputSize[UISize] + " " + errorToggle}
-        type={type} placeholder={placeholder} name={name} autofocus={autofocus} disabled={disabled} />
+        type={InputType[type] || 'text'}
+        placeholder={placeholder}
+        value={value}
+        onChange={this.props.onChange}
+        name={name}
+        autofocus={autofocus}
+        disabled={disabled} />
     )
   }
 }
