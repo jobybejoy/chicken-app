@@ -124,3 +124,50 @@ button:hover{
   box-shadow: var(--elevation-03);
 }
 
+/* Google Button */
+
+.socialLoginButton.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px ;
+  padding-right:24px;
+  border-radius: 100px;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.1);
+  
+  /* width: 240px; */
+  /* height: 42px; */
+  min-width: 220px;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.socialLoginButton.container .logo{
+  height: 24px;
+  width:24px;
+}
+
+.socialLoginButton.container .label{
+  padding-left: 12px;
+  color: var(--text-02);
+}
+
+/* Google */
+.google{
+  background-color: #fff;
+}
+
+/* Facebook */
+.facebook{
+  background-color: #4267b2;
+}
+.socialLoginButton.facebook .logo{
+  margin-top:-4px;
+}
+
+.socialLoginButton.facebook .label{
+  color: var(--text-inverse);
+}

@@ -7,6 +7,7 @@ import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs
 import SearchIcon from '@material-ui/icons/Search'
 
 import Button from './index';
+import SocialLoginButton from './SocialLoginButton'
 
 // TODO Have to make Grid to components
 
@@ -35,5 +36,15 @@ stories
     <Button varient={'FAB'} name={'fab'} disabled={boolean('Disabled', false)}>
       <SearchIcon />
     </Button>
+  ))
+  .add('Google Login', () => (
+    <div style={{ padding: 40 }}>
+      <SocialLoginButton provider={'Google'} />
+    </div>
+  ))
+  .add('Facebook Login', () => (
+    <div style={{ padding: 40 }}>
+      <SocialLoginButton provider={'Facebook'} />
+    </div>
   ))
   ;
