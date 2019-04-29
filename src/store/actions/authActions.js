@@ -46,4 +46,24 @@ export const signUp = (newUser) => {
   }
 }
 
+export const signUpWithGoogle = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    return firebase.login({ provider: 'google', type: 'popup' })
+    // .then((response) => {
+    //   return firestore.collection('users').doc(response.user.uid).set({
+    //     phoneNumber: 80301043023
+    //   },
+    //     { merge: true }
+    //   )
+    // })
+    // .then((response) => {
+    //   dispatch({ type: 'SIGNUP_SUCCESS' });
+    // })
+
+  }
+}
+
 

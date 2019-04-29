@@ -13,7 +13,6 @@ import ItemDetails from '../containers/ItemDetails'
 import NavBar from '../containers/temp/NavBar'
 import SignIn from '../containers/temp/SignIn'
 import AuthRoute from '../containers/temp/AuthRoute'
-import GoogleSignIn from '../containers/temp/Sign/GoogleLogin'
 
 import AppBar from '../components/Molecules/AppBar'
 
@@ -22,11 +21,13 @@ import Location from '../containers/Location'
 import Checkout from '../containers/Checkout'
 import Payment from '../containers/Payment'
 import Order from '../containers/Order'
+import Login from '../containers/Auth/Login/GoogleLogin'
 
 class App extends Component {
   render() {
 
     const { cart } = this.props
+    console.log('APP', this.props);
 
     return (
       <BrowserRouter>
@@ -38,7 +39,7 @@ class App extends Component {
             <Route path="/item/:id" component={ItemDetails} />
             <Route path="/signin" component={SignIn} />
 
-            <Route path="/google" component={GoogleSignIn} />
+            <Route path="/login" component={Login} />
 
             <Route path="/cart" component={Cart} />
             <Route path="/location" component={Location} />
@@ -57,6 +58,7 @@ class App extends Component {
 
 // export default App;
 const MapStateToProps = (state) => {
+
   return {
     // items: state.firestore.ordered.items,
     cart: state.cart,
