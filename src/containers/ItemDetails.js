@@ -8,8 +8,12 @@ import PullOver from '../components/Molecules/PullOver'
 import ItemDetailsComponent from '../components/Templates/ItemDetails'
 
 import { addCountToSubItem, subtractCountToSubItem, addItem, removeItem, setCountToSubItem } from '../store/actions/cartActions'
-
+import { getAllItems } from '../store/actions/itemsActions'
 export class ItemDetails extends Component {
+
+  componentDidMount() {
+    this.props.getAllItems();
+  }
 
   render() {
 
@@ -51,33 +55,38 @@ export class ItemDetails extends Component {
 const mapStateToProps = (state, ownProps) => {
 
   const id = ownProps.match.params.id;
+
+  console.log(state.items);
+
   // const items = state.firestore.data.items;
   const items = state.items.items
-  const item = items ? items[id] : null;
+  if (items) {
+    const item = items ? items.find(i => i.id === id) : null;
 
-  const cartItem = state.cart.items.find(i => i.name === item.name)
+    const cartItem = state.cart.items.find(i => i.name === item.name)
 
-  let res = Array.from(Array(item.subItems.length), () => 0);
+    let res = []
+    if (item) {
+      res = Array.from(Array(item.subItems.length), () => 0);
+    }
 
-  if (cartItem) {
+    if (cartItem) {
+      cartItem.subItems.map(s => {
+        const index = item.subItems.findIndex(item => item.name === s.name)
+        // * Might be mutating this !! Take care of it.
+        res[index] = s.count
+      })
+    };
 
-    cartItem.subItems.map(s => {
-      const index = item.subItems.findIndex(item => item.name === s.name)
-      // * Might be mutating this !! Take care of it.
-      res[index] = s.count
-    })
+    const subItemsCartCount = [...res]
 
-  };
-
-
-  const subItemsCartCount = [...res]
-
-
-  return {
-    item: item,
-    cartItem: cartItem,
-    subItemsCartCount: subItemsCartCount
+    return {
+      item: item,
+      cartItem: cartItem,
+      subItemsCartCount: subItemsCartCount
+    }
   }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -86,7 +95,9 @@ const mapDispatchToProps = (dispatch) => {
     subCount: (item) => dispatch(subtractCountToSubItem(item)),
     addItem: (item) => dispatch(addItem(item)),
     removeItem: (item) => dispatch(removeItem(item)),
-    setItemValue: (item, value) => dispatch(setCountToSubItem(item, value))
+    setItemValue: (item, value) => dispatch(setCountToSubItem(item, value)),
+
+    getAllItems: () => dispatch(getAllItems()),
   }
 }
 

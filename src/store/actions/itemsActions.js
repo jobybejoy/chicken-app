@@ -17,3 +17,26 @@ export const createItem = (item) => {
 
   }
 }
+
+export const getAllItems = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+
+    //make async call to DB
+    const firestore = getFirestore();
+
+    // db.collection("cities")
+    //   .onSnapshot(function (doc) {
+    //     console.log("Current data: ", doc.data());
+    //   });
+
+    const docRef = firestore.collection("items");
+
+    docRef.onSnapshot((querySnapshot) => {
+      const items = querySnapshot.docs.map(doc => doc.data());
+      dispatch({ type: 'SET_ITEMS', items: items })
+    });
+
+  }
+}
+
+export default getAllItems
