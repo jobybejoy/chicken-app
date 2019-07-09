@@ -1,5 +1,7 @@
 
-const initState = {}
+const initState = {
+  locations: []
+}
 
 const userReducer = (state = initState, action) => {
   switch (action.type) {
@@ -9,6 +11,11 @@ const userReducer = (state = initState, action) => {
     case 'CREATE_ITEM_ERROR':
       console.log('create item error', action.error);
       return state;
+    case 'SET_LOCATION':
+      return {
+        ...state,
+        locations: action.locations
+      }
     default: return state;
   }
 }

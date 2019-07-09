@@ -16,3 +16,14 @@
 .page.container{
   padding:16px
 }
+/* 
+* {
+      touch-action: manipulation;
+  } */
+
+.screen{
+  min-height: 100vh;
+  position: relative;
+  /* the nav bar residue */
+  padding-bottom: 64px;
+}

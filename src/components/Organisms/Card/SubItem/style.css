@@ -1,5 +1,6 @@
 .subitem{
-  width: 351px;
+  /* width: 351px; */
+  width: calc(100% - 32px);
   background-color: var(--ui-02);
   padding: 16px;
   box-shadow: var(--elevation-03);

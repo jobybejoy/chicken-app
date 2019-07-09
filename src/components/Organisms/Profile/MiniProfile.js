@@ -3,7 +3,7 @@ import './style.css'
 import Text from '../../Atoms/Text'
 
 import GoogleLogo from '../../../assets/icons/google_logo.png'
-import FacebookLogo from '../../../assets/icons/facebook_logo.svg'
+import FacebookLogo from '../../../assets/icons/facebook_logo.png'
 
 export class MiniProfile extends Component {
 

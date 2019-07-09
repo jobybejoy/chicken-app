@@ -30,7 +30,7 @@
 }
 
 .minicard .image{
-  width:100%;
+  max-width:100%;
   height: calc(100% - 40px);
   border-radius: 8px;
   object-fit: contain;
@@ -41,4 +41,21 @@
   height: 24px;
   margin-top: 16px;
   text-align: center;
+}
+
+.minicard.bordered{
+  border: 2px dashed var(--brand-01); 
+}
+
+.minicard.invisible{
+  background-color: transparent;
+  box-shadow: none
+}
+
+.minicard .text-brand{
+  color: var(--brand-01)
+}
+
+.minicard .icon{
+  font-size: 28px;
 }

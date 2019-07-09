@@ -11,7 +11,7 @@ export class Payment extends Component {
         <Text className={'category_title'} varient='h3' component='div'>Payment</Text>
         <div className="banner"></div>
         <div className="pay_options">
-          <Link to={'/order'}><MiniCard name="Cash on Delivery" /></Link>
+          <Link onClick={this.props.next}><MiniCard name="Cash on Delivery" /></Link>
           <MiniCard className={'disabled'} name="Online Payment" />
         </div>
 

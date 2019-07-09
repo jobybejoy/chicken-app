@@ -6,14 +6,21 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "@storybook/addon-knobs": "^5.0.1",
+    "algoliasearch": "^3.33.0",
+    "axios": "^0.18.0",
     "firebase": "^5.9.2",
     "google-map-react": "^1.1.2",
+    "moment": "^2.23.0",
+    "qrcode.react": "^0.9.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-instantsearch-dom": "^5.7.0",
+    "react-qr-reader": "^2.2.1",
     "react-redux": "^5.1.1",
     "react-redux-firebase": "^2.2.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-select": "^3.0.4",
     "redux": "^4.0.1",
     "redux-firestore": "^0.7.2",
     "redux-thunk": "^2.3.0"
@@ -36,11 +43,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^5.0.1",
+    "@babel/core": "^7.3.4",
     "@storybook/addon-actions": "^5.0.1",
     "@storybook/addon-links": "^5.0.1",
     "@storybook/addons": "^5.0.1",
-    "@babel/core": "^7.3.4",
+    "@storybook/react": "^5.0.1",
     "babel-loader": "^8.0.5"
   }
 }

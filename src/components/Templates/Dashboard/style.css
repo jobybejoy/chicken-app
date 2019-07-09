@@ -1,0 +1,61 @@
+.dashboard.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+
+  padding:16px;
+}
+
+.dashboard.container a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 50%
+}
+
+.metaCard{
+  height: 145px;
+  width: calc(100% - 20px);
+  margin: 8px;
+
+  position: relative;
+  box-sizing: border-box;
+  padding: 4px 8px;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  background-color: var(--ui-03);
+}
+
+.metaCard.red{   background-color: #EB6057;}
+.metaCard.orange{background-color: #EE924F;}
+.metaCard.purple{background-color: #7B49E4;}
+.metaCard.green{ background-color: #58D14E;}
+
+.metaCard .metaName{
+  color: var(--text-inverse);
+}
+
+.metaCard .metaCount{
+  position: absolute;
+  bottom: 4px;
+  right:8px;
+  color: var(--text-inverse);
+  /* I like 64px size but doesnt fit in iPhone 5 */
+  /* font-size: 64px; */ 
+  font-size: 56px;
+  font-family: 'poppins'
+}
+
+.metaCard .metaSVG{
+  position: absolute;
+  top: 26px;
+  z-index: 1;
+  left: -10px;
+  mix-blend-mode: overlay;
+
+}

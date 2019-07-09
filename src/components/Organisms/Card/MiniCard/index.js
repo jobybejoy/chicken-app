@@ -23,7 +23,7 @@ export class MiniCard extends Component {
       <div className={"minicard container " + (className && className)}>
         {
           image ?
-            <img src={ItemImage} className={'image'} /> : <span className={'loading image'} />
+            <img src={image || ItemImage} className={'image'} /> : <span className={'loading image'} />
         }
         <Text className={'text'} varient="body2semibold">{name}</Text>
       </div>

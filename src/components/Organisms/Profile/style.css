@@ -95,8 +95,13 @@
 /* Children Styling */
 
 .miniprofile .otherItems{
-  margin-top: 16px;
+  margin-top: 4px;
+  min-width: 240.800px;
   /* color: var(--text-03) */
+}
+
+.miniprofile .otherItems .FormLabel{
+  margin-top: 12px; 
 }
 
 .miniprofile .otherItems .nextPage{

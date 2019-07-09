@@ -1,0 +1,216 @@
+.assignRole.container{
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 16px;
+}
+.assignRole.container .pageTitle{
+  font-weight: 800;
+  /* font-family: 'poppins' */
+  padding-bottom: 54px;
+}
+
+.filterContainer,.ais-SearchBox-form{
+  display: block;
+  position: relative;
+}
+
+.custom-input.filter,.ais-SearchBox-input{
+  display: block;
+  width: 100%;
+  height: 64px;
+  text-align: left;
+
+  box-sizing: border-box;
+  padding: 16px;
+  padding-left: 24px;
+  margin-bottom: 16px;
+
+  border-radius: 8px;
+
+  background-color: transparent;
+  border: 2px solid var(--ui-03);
+  
+  /* Text */
+  color: var(--text-01);
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 14px;
+  font-family: 'poppins';
+  font-style: normal;
+}
+
+.filterText{
+  color: var(--text-01);
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 14px;
+  font-family: 'poppins';
+  font-style: normal;
+}
+
+.custom-input.filter:focus,.ais-SearchBox-input:focus{
+  border-color: var(--text-03);
+  outline: none;
+}
+
+.custom-input.filter::placeholder,.ais-SearchBox-input::placeholder{
+   font-family: var(--base-font-family);
+  color: var(--ui-04)
+}
+
+.filterBtn,.ais-SearchBox-submit{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+  width: 48px;
+  height:48px;
+  padding:12px;
+  background-color: var(--brand-01);
+  color: var(--text-inverse);
+}
+
+.ais-SearchBox-submit:focus,.ais-SearchBox-reset{
+  outline: none;
+}
+
+.ais-SearchBox-reset{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 8px;
+
+  z-index: 2;
+
+  box-sizing: border-box;
+  width: 48px;
+  height:48px;
+  padding:12px;
+  background-color: var(--brand-01);
+  color: var(--text-inverse);
+}
+
+
+.suggestion.container{
+  padding: 16px;
+  padding-left: 24px;
+
+  margin-top:16px;
+  margin-bottom: 16px;
+
+  border-radius: 8px;
+  border:2px solid var(--text-03);
+}
+
+.hits a{
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.hits a:focus .suggestion.container{
+  border-color: var(--brand-01);
+  outline: none;
+}
+
+.rolesContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+ .roleChip{
+  padding:2px 16px;
+  margin-top: 16px;
+  margin-right: 24px;
+  border-radius: 50px;
+  color: var(--text-03);
+  border:2px solid var(--ui-04);
+}
+
+.roleChip .body2{
+  font-size: 12px;
+  line-height: 20px;
+}
+
+ .roleChip.selected{
+  background-color: var(--brand-01);
+  color: var(--text-inverse);
+  border-color: var(--brand-01);
+}
+
+.roleChip.disabled{
+   background-color: var(--color-disabled);
+  color: var(--text-inverse);
+  border-color: var(--color-disabled);
+}
+
+.helpers{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top:32px;
+  padding-bottom: 32px;
+}
+
+.helpers .note{
+  width: 100%;
+}
+
+.helpers .roleChip{
+  width: 45px;
+  height:10px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
+  position: relative;
+  color: grey;
+}
+
+.helpers .roleChip .caption{
+  position: absolute;
+  text-align: center;
+  bottom: -21px;
+  left: -3px;
+}
+
+.newRole.container{
+  margin-top:56px;
+}
+
+.newRole.container .label{
+  color: var(--text-03);
+  padding-top:16px;
+  padding-bottom:16px;
+}
+
+.newRole.container .cta{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: auto;
+}
+
+.newRole.container .select__control {
+  padding:8px;
+  font-family: var(--base-font-family);
+}
+.newRole.container .select__multi-value{
+  padding: 2px 8px;
+  padding-right: 4px;
+  margin:4px;
+  border-radius: 50px;
+
+  font-family: 'poppins';
+  color: var(--text-02);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.newRole.container .select__multi-value__label{
+   color: var(--text-02);
+}

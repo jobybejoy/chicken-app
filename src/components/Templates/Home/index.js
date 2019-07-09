@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import MiniCard from '../../../components/Organisms/Card/MiniCard'
+import AddCard from '../../../components/Organisms/Card/MiniCard/AddCard'
 import { Link } from 'react-router-dom'
 
 //TODO as the component is waiting for data, 
@@ -10,7 +11,7 @@ export class Home extends Component {
 
   render() {
 
-    const { items, loading } = this.props;
+    const { items, loading, manager } = this.props;
     const length = items.length;
 
     if (length > 0) {
@@ -20,10 +21,16 @@ export class Home extends Component {
             items.map((item, key) => {
               return (
                 <Link to={'/item/' + item.id} key={key}>
-                  <MiniCard name={item.name} image={loading ? 'null' : item.url} loading={loading} />
+                  <MiniCard name={item.name} image={loading ? null : item.url} loading={loading} />
                 </Link>
               )
             })
+          }
+          {
+            manager &&
+            <Link to={'/add/item'}>
+              <AddCard title={"Add Item"} icon={null} loading={loading} />
+            </Link>
           }
         </div>
       )

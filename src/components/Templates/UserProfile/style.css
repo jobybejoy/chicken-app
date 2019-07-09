@@ -1,0 +1,84 @@
+.userProfile.container{
+  
+  width: calc(100% - 16px);
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  padding: 32px 16px ;
+
+  box-sizing: border-box;
+
+  margin-top:16px;
+  margin-bottom: 16px;
+
+  margin:  16px 8px;
+
+  border: 2px solid var(--text-03);
+  border-radius: 16px;
+
+}
+
+.userProfile.container .userImage img{
+  width: 100px;
+  height: 100px;
+
+  border-radius: 100px;
+}
+
+.userProfile.container .userName{
+  margin-top: 16px;
+  font-family: 'Poppins';
+}
+
+.userProfile.container .userEmail{
+  margin-top:8px;
+  margin-bottom: 4px;
+}
+
+.userProfile.container .contact_user{
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-bottom: 24px; */
+  margin-top:24px;
+  width: 100%;
+}
+
+.userProfile.container .contact_user .contact_btn{
+  padding: 8px 24px
+}
+
+.userProfile.container .roles{
+  width: 100%;
+  padding-left: 64px;
+  padding-top:16px;
+}
+
+.userProfile.container .roles .role_chip{
+  margin-top:8px;
+  padding: 4px 16px;
+  color: var(--text-02);
+  border:2px solid var(--ui-04);
+  border-radius: 50px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.userProfile.container .roles .role_chip.selected{
+  color: var(--brand-01);
+  border-color: var(--brand-01);
+}
+
+/* .role_chip+.role_chip{
+  margin-right: 8px;
+} */
+
+.userProfile.container .helpers{
+  width: 80%;
+}
+
+.userProfile.container .helpers .selected{
+  background-color: transparent;
+}

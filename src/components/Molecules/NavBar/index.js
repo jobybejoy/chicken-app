@@ -1,54 +1,80 @@
 import React, { Component } from 'react'
-import './style.css'
 import Text from '../../Atoms/Text'
+import { Link, withRouter } from 'react-router-dom';
 
-import HomeIcon from '@material-ui/icons/Home'
-import SearchIcon from '@material-ui/icons/Search'
-import LocalBarIcon from '@material-ui/icons/LocalBar'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
-import CartIcon from '@material-ui/icons/ShoppingCart'
+import './style.css'
 
-export class NavBar extends Component {
+import HomeIcon from '../../../assets/icons/NavIcons/Home.svg'
+import SearchIcon from '../../../assets/icons/NavIcons/Search.svg'
+import OrdersIcon from '../../../assets/icons/NavIcons/Orders.svg'
+import ProfileIcon from '../../../assets/icons/NavIcons/Profile.svg'
 
-  state = {
-    selected: 'Home',
-  }
+// Lite Icons
+import HomeLiteIcon from '../../../assets/icons/NavIcons/Home-lite.svg'
+import SearchLiteIcon from '../../../assets/icons/NavIcons/Search-lite.svg'
+import OrdersLiteIcon from '../../../assets/icons/NavIcons/Orders-lite.svg'
+import ProfileLiteIcon from '../../../assets/icons/NavIcons/Profile-lite.svg'
+
+
+
+class NavBar extends Component {
+
 
   render() {
 
-    const { props, navItem } = this.props
+    // console.log('nav', this.props);
+
+    const { location } = this.props
+    const path = location.pathname
+
+    if (path === "/location") return null
+    if (path === "/login") return null
 
     return (
-      <React.Fragment>
-        <div className="navBar container">
-          {
-            navItem &&
-            navItem.map((item) => {
-              return (
-                <div className="item container" onClick={() => { this.setState({ selected: item.title }) }}>
-                  <div className={'item ' + (this.state.selected == item.title && 'selected')}>
-                    <div className="icon">
-                      {item.icon}
-                    </div>
-                    <Text className="title" component="div" varient='caption'>{item.title}</Text>
-                  </div>
-                </div>
-              )
-            })
-          }
+      <div className={'navBar container'}>
+        <div className="navItems">
+          <Link to={'/'} >
+            <div className={"item " + (path === "/" && 'selected')} >
+              <img src={path === "/" ? HomeLiteIcon : HomeIcon} alt="" />
+              {path === "/" &&
+                <Text className={"itemName"} component="div" varient="label" >Home</Text>
+              }
+            </div>
+          </Link>
+
+          <Link to={'/search'} >
+            <div className={"item " + (path === "/search" && 'selected')} >
+              <img src={path === "/search" ? SearchLiteIcon : SearchIcon} alt="" />
+              {path === "/search" &&
+                <Text className={"itemName"} component="div" varient="label" >Search</Text>
+              }
+            </div>
+          </Link>
+
+          <Link to={'/my/orders'} >
+            <div className={"item " + (path === "/my/orders" && 'selected')} >
+              <img src={path === "/my/orders" ? OrdersLiteIcon : OrdersIcon} alt="" />
+              {path === "/my/orders" &&
+                <Text className={"itemName"} component="div" varient="label" >Orders</Text>
+              }
+            </div>
+          </Link>
+
+          <Link to={'/my/profile'} >
+            <div className={"item " + (path === "/my/profile" && 'selected')} >
+              <img src={path === "/my/profile" ? ProfileLiteIcon : ProfileIcon} alt="" />
+              {path === "/my/profile" &&
+                <Text className={"itemName"} component="div" varient="label" >Profile</Text>
+              }
+            </div>
+          </Link>
+
         </div>
-      </React.Fragment>
+      </div>
     )
   }
 }
 
-NavBar.defaultProps = {
-  navItem: [
-    { title: 'Home', icon: <HomeIcon className="src" /> },
-    { title: 'Search', icon: <SearchIcon className="src" /> },
-    { title: 'Map', icon: <LocalBarIcon className="src" /> },
-    { title: 'Profile', icon: <AccountCircleIcon className="src" /> },
-  ]
-};
 
-export default NavBar
+const NavBarWithRouter = withRouter(NavBar);
+export default NavBarWithRouter

@@ -8,7 +8,7 @@ export class ItemHeader extends Component {
 
   render() {
 
-    const { loading, item, className } = this.props;
+    const { loading, item, image, className } = this.props;
 
     if (loading) {
       return (
@@ -21,7 +21,10 @@ export class ItemHeader extends Component {
 
     return (
       <div className={"itemheader container " + className}>
-        <img src={ItemImage} className={'image'} />
+        {
+          item.url ?
+            <img src={item.url || ItemImage} className={'image'} /> : <span className={'loading image'} />
+        }
         <Text className={'text'} varient="body2semibold">{item.name}</Text>
       </div>
     )

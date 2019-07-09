@@ -29,6 +29,16 @@
 .AppBar .logo .logoName{
   font-weight: 800;
   font-size: 18px;
+  
+}
+
+.AppBar .left a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.AppBar .logo .logoName:visited,.AppBar .logo .logoName:active{
+  color: inherit
 }
 
 .AppBar .right{

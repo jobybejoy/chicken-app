@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import GoogleLogo from '../../../assets/icons/google_logo.png'
-import facebookLogo from '../../../assets/icons/facebook_logo.svg'
+import facebookLogo from '../../../assets/icons/facebook_logo_white.png'
 import Text from '../Text'
 
 export class SocialLoginButton extends Component {

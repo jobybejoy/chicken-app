@@ -1,3 +1,5 @@
+
+// *Login With email and password (NotUsed)
 export const signIn = (credentials) => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -14,6 +16,7 @@ export const signIn = (credentials) => {
   }
 }
 
+// * Sign Out or Logout
 export const signOut = () => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -24,6 +27,7 @@ export const signOut = () => {
   }
 }
 
+// *Sign Up using email and passowrd
 // Address [ CompleteAddress,Nearest Landmark,Location Name ] , Mobile Numbers ,
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -46,22 +50,18 @@ export const signUp = (newUser) => {
   }
 }
 
+// * SignUp with Google
 export const signUpWithGoogle = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    const firebase = getFirebase();
-    const firestore = getFirestore();
+    console.log('Logging In With Google')
+    return getFirebase().login({ provider: 'google', type: 'popup' })
+      .then((response) => {
+        console.log('Google Login Success', response);
+      })
+      .catch((error) => {
+        console.log('Google Login Failed', error);
 
-    return firebase.login({ provider: 'google', type: 'popup' })
-    // .then((response) => {
-    //   return firestore.collection('users').doc(response.user.uid).set({
-    //     phoneNumber: 80301043023
-    //   },
-    //     { merge: true }
-    //   )
-    // })
-    // .then((response) => {
-    //   dispatch({ type: 'SIGNUP_SUCCESS' });
-    // })
+      })
 
   }
 }

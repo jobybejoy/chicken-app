@@ -1,0 +1,83 @@
+.deliver_order.container .header{
+  /* height: 60px; */
+  border-radius: 16px;
+  padding: 16px 24px;
+  /* padding: 16px smaller screens */
+  /* Or 24 */
+
+  display: flex;
+  flex-direction: row;
+
+  /* background-color: #2A2E43; */
+  /* background-color: var(--ui-06); */
+  border: 2px solid var(--ui-03);
+  /* color: var(--text-inverse); */
+
+  margin-bottom: 16px;
+}
+
+
+.deliver_order.container .header .user_image{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+
+
+
+.deliver_order.container .header .user_name{
+    /* color: var(--text-03); */
+    font-weight: bold;
+    /* font-family: 'Poppins'; */
+    font-size: 18px;
+    font-style: normal;
+    line-height: 28px;
+}
+
+.deliver_order.container .header .order_time{
+    font-style: normal;
+    margin-top:-4px;
+}
+
+
+.deliver_order.container .header .user_email{
+  margin-top:16px
+}
+
+.deliver_order.container .header .user_phoneNumber{
+  margin-top:16px;
+  margin-bottom: 8px;
+}
+
+.deliver_order.container .contact_user{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 24px;
+}
+
+.deliver_order.container .contact_user a{
+  border-radius: 50px;
+}
+
+.deliver_order.container .contact_user .contact_btn{
+  padding: 8px 24px
+}
+
+.deliver_order.container .header .order_id{
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--text-03);
+  margin-left: auto;
+  margin-top: 6px
+}
+
+.deliver_order.container .header .i2{
+  margin-left: 16px;
+  margin-top:-4px
+}
+
+.deliver_order.container .deliv_btn{
+  margin-top:40px;
+  width: 100%;
+}

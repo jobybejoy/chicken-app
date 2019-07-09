@@ -12,14 +12,14 @@ export class CheckoutItem extends Component {
     return (
       <div className={'checkoutItem container'}>
         <div className="col">
-          <img className="itemImage" src={ItemImage} alt="" />
+          <img className="itemImage" src={item.url} alt="" />
         </div>
         <div className="col2">
           <Text className="itemName" varient={'h3'} component="div">{item.name}</Text>
           {
             item.subItems.map((subItem) => {
               return (
-                <div className="subItem">
+                <div className="subItem" key={subItem.name}>
                   <Text className="name" varient={'body'}>{subItem.name}</Text>
                   <Text className="quantity" varient={'body'}>{'' + subItem.count}</Text>
                   <Text className="price" varient={'body'}>{subItem.subPrice + ' AED'}</Text>

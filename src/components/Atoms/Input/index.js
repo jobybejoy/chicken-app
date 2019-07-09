@@ -29,6 +29,7 @@ export class Input extends Component {
         onChange={this.props.onChange}
         name={name}
         autofocus={autofocus}
+        autocomplete={false}
         disabled={disabled} />
     )
   }

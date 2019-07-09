@@ -13,7 +13,7 @@ export class LabeledForm extends Component {
 
   render() {
 
-    const { name, label, placeholder, disabled, helperText, helperType } = this.props;
+    const { name, label, type, value, placeholder, disabled, helperText, helperType } = this.props;
 
     return (
       <React.Fragment>
@@ -26,7 +26,10 @@ export class LabeledForm extends Component {
         </div>
         <Input
           name={name}
+          type={type}
           placeholder={placeholder}
+          value={value}
+          onChange={this.props.onChange}
           error={helperType === 'ERROR' ? true : false}
           disabled={disabled}
         />

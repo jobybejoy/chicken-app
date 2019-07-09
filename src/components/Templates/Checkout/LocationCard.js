@@ -10,7 +10,9 @@ export class LocationCard extends Component {
     return (
       <div className={'locationCard container'}>
         <Text className="title" varient="h6" component="div">{title}</Text>
-        <Text className="address" varient="body2semibold" component="div">{address}</Text>
+        {
+          address && <Text className="address" varient="body2semibold" component="div">{address}</Text>
+        }
       </div>
     )
   }

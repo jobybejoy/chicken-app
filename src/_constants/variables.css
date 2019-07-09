@@ -29,6 +29,10 @@
   /* Tint */
   --tint-primary: rgba(98, 108, 254, 0.1);
 
+  /* Icon Colors */
+  --icon-primary: #54626C;
+  --icon-secondary: #B8CCD7;
+
   /* Disabled */
   --color-disabled: #D3D4D8;
   

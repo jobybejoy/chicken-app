@@ -1,77 +1,80 @@
 .navBar.container{
-  width: 100%;
-  height: 64px;
-
-  padding: 0px 16px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--ui-02);
-  /* background-color: blue */
-  box-shadow: 0 0 18px rgba(0,0,0,0.1);
+  /* width: 100%; */
+  width: calc(100% - 16px);
+  max-width: 404px;
+  /* border: 2px solid var(--icon-secondary); */
   border-radius: 16px;
+
+  position: fixed;
+  bottom: 0;
+
+  margin-left: 8px;
+  margin-bottom: 8px;
+  
+  box-shadow:  0 0 18px rgba(0,0,0,0.1);
+  background-color: var(--ui-01);
+
+  z-index: 100;
 }
 
-.navBar.container .item.container{
-  width: 25%;
+.navBar.container .navItems{
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navBar.container .navItems .item{
+
+  text-decoration: none;
+  color: var(--text-inverse);
+
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.navBar.container .navItems .item{
   display: flex;
   justify-content: center;
   align-items: center;
   
 }
 
-.item.container .item{
-  /* width: 26px; */
-  /* height: 26px; */
-  padding: 4px;
-  border-radius: 50px;
-  /* color:grey;
-  background-color: grey; */
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.item.container .item .title::selection{
-  /* background-color:transparent; */
-}
-
-.item.container .item .icon,.icon>.src{
-  color: var(--ui-05);
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
-}
-
-.item.container .item .title{
-  display: none;
-  opacity: 0;
-}
-
-.item.container .item.selected .icon>.src{
-  color: var(--ui-02);
-}
-
-.item.container .item.selected .title{
-  display: block;
-  font-weight: 500;
-  color: var(--ui-02);
-  opacity: 1;
-}
-
-.item.container .item.selected .icon{
-  margin-right: 2px;
-}
-
-.item.container .item.selected{
-  /* min-width: 50px; */
-  height: 24px;
-  padding: 4px 8px; 
-  border-radius: 50px;
-  color: var(--ui-02);
+.navBar.container .navItems .item.selected{
+  padding: 8px 16px;
+  margin: 8px 0;
   background-color: var(--brand-01);
+  border-radius: 50px;
 }
 
+
+.navBar.container .navItems .item img{
+  /* height: px; */
+}
+
+.navBar.container .navItems .item .itemName{
+  padding-left: 6px;
+  font-weight: 500;
+}
+
+
+.navBar.container a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.pullContainer+.navBar.container{
+  width: 100%;
+  border-radius: 0px;
+  margin:0;
+  box-shadow: none;
+  /* box-shadow: var(--elevation-03-reverse); */
+}
+
+.pullContainer+.navBar.container .navItems{
+  padding-top:0;
+  padding-bottom: 4px;
+}

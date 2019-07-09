@@ -27,3 +27,7 @@
   box-sizing: border-box;
 }
 
+.authed.container .email.phn{
+  text-align: center;
+  width: 100%;
+}

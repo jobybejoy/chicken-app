@@ -4,6 +4,7 @@ import Text from '../../Atoms/Text'
 import CheckoutItem from './CheckoutItem'
 import RadioPicker from '../../Molecules/RadioPicker';
 import LocationCard from './LocationCard'
+import { Link } from 'react-router-dom'
 
 //TODO mmm not happy with the Location stying
 
@@ -25,7 +26,9 @@ export class Checkout extends Component {
           <Text className={'cart_total'} varient={'body'} component='span'>{total + ' AED' || 0 + ' AED'}</Text>
         </div>
         <Text className={'category_title'} varient='h3' component='div'>Delivery</Text>
-        <LocationCard title={address.title || 'home'} address={address.fullAddress || 'Lizzy Bunglow, Karuvatta, Adoor, Pathanamthitta, Kerala, India 691523'} />
+        <Link to={'/location'} key={'Location'}>
+          <LocationCard title={address.title} address={address.fullAddress} />
+        </Link>
       </div>
     )
   }
@@ -50,7 +53,11 @@ Checkout.defaultProps = {
       ],
       subTotal: 10
     }
-  ]
+  ],
+  address: {
+    title: 'DEFAULT',
+    fullAddress: 'DEFAULT'
+  }
 };
 
 export default Checkout

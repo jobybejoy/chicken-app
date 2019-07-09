@@ -56,3 +56,33 @@
 a[href^="http://maps.google.com/maps"]{display:none !important}
 a[href^="https://maps.google.com/maps"]{display:none !important}
 
+.location.container .addLocation{
+  padding:16px;
+  padding-left: 24px;
+  border-radius: 16px;
+  opacity: 0.6;
+  border: 2px dashed var(--ui-04);
+  margin-top:16px;
+}
+
+.popOver a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.popOver .input{
+  width: 100%;
+}
+
+.popOver .locationNames{
+  display: flex;
+  margin: 16px 0;
+}
+
+.popOver .chip+.chip{
+  margin-left:16px;
+}
+
+.popOver .fullAddress{
+  margin-top:24px;
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
+import { Redirect } from 'react-router-dom'
 import './styles.css'
 
 import SocialButton from '../../../components/Atoms/Button/SocialLoginButton'
@@ -15,28 +16,73 @@ import MiniProfile from '../../../components/Organisms/Profile/MiniProfile'
 import Text from '../../../components/Atoms/Text'
 import Button from '../../../components/Atoms/Button'
 
+import { userPhoneNumber } from '../../../store/actions/userActions'
+
 import NextIcon from '@material-ui/icons/KeyboardArrowRight'
+
 
 // export function LoginPage({ firebase, auth, props }) {
 // TODO Add Internationalised button
 
 export class LoginPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { number: '' };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    phoneNumber: "",
+    error: false,
+    errorMessage: "",
   }
 
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    // if (this.props.auth.uid) {
+    //   return <Redirect to='/' />
+    // }
+  }
+
+  // addAdminReq() {
+  //   this.props.setAsAdmin()
+  // }
+
   handleChange(event) {
-    this.setState({ number: event.target.number });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.number);
-    event.preventDefault();
+    // alert('A number was submitted: ' + this.state.phoneNumber);
+    // this.props.firebase.updateProfile({ phoneNumber: this.state.phoneNumber })
+    if (this.state.phoneNumber !== "") {
+      this.setState({
+        error: false,
+        errorMessage: ''
+      })
+      this.props.userPhoneNumber(this.state.phoneNumber)
+    } else {
+      this.setState({
+        error: true,
+        errorMessage: 'Valid Number is required'
+      })
+    }
+  }
+
+  getRedirect(roles) {
+    if (roles.admin) {
+      return this.props.history.push('/admin/dashboard')
+    }
+    if (roles.manager) {
+      return this.props.history.push('/manager/dashboard');
+    }
+    if (roles.deliveryBoy) {
+      return this.props.history.push('/delivery/boy/dashboard')
+    }
+    if (roles.user) {
+      return this.props.history.push('/')
+    }
   }
 
   render() {
@@ -44,8 +90,13 @@ export class LoginPage extends Component {
 
     const { auth, profile } = this.props
 
+    const { error, errorMessage } = this.state
+
     return (
       <div >
+        {/* <button onClick={() => { this.addAdminReq() }}>
+          HEY ADMIN
+        </button> */}
         <div>
           {/* <h2>Auth</h2> */}
           {/* {
@@ -89,26 +140,37 @@ export class LoginPage extends Component {
                           url={profile.avatarUrl}
                           name={profile.displayName}
                           email={profile.email}
-                          provider={profile.providerData[0].providerId}
+                          provider={profile.providerData ? profile.providerData[0].providerId : 'Facebook.com'}
                         >
 
                           {
                             !profile.phoneNumber ?
                               <React.Fragment>
-                                <form onSubmit={this.handleSubmit}>
-                                  <Form value={this.state.number} onChange={this.handleChange} name="phoneNumber" type="TEL" placeholder={'Mobile Number'} label={'Mobile Number'} helperText={'Must Be a Valid Name!!'} />
-                                  <div className="nextPage">
-                                    <Button varient="FAB" onClick={() => {
-                                      // this.props.history.push('/google/2')
-                                      this.handleSubmit()
-                                    }}>
-                                      <NextIcon />
-                                    </Button>
-                                  </div>
-                                </form>
+                                {/* <form onSubmit={this.handleSubmit}> */}
+                                <Form name="phoneNumber" type="TEL" placeholder={'Mobile Number'}
+                                  label={'Mobile Number'} helperText={errorMessage || 'Must Be a Mobile Number!!'} helperType={error ? "ERROR" : "default"}
+                                  value={this.state.phoneNumber} onChange={(e) => this.handleChange(e)} required />
+                                <div className="nextPage">
+                                  <Button varient="FAB" onClick={() => {
+                                    this.handleSubmit()
+                                    // this.props.history.push('/')
+                                  }}>
+                                    <NextIcon />
+                                  </Button>
+                                </div>
+                                {/* </form> */}
                               </React.Fragment>
                               :
-                              <Text className={"email "} component="div" varient="body" >{profile.phoneNumber}</Text>
+                              <React.Fragment>
+                                <Text className={"email phn"} component="div" varient="body" >{profile.phoneNumber}</Text>
+                                <div className="nextPage">
+                                  <Button varient="FAB" onClick={() => {
+                                    this.getRedirect(profile.roles)
+                                  }}>
+                                    <NextIcon />
+                                  </Button>
+                                </div>
+                              </React.Fragment>
                           }
 
                         </MiniProfile>
@@ -144,7 +206,9 @@ const MapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signWithGoogle: () => dispatch(signUpWithGoogle()),
-    signOut: () => dispatch(signOut())
+    signOut: () => dispatch(signOut()),
+    userPhoneNumber: (number) => dispatch(userPhoneNumber(number)),
+    // setAsAdmin: () => dispatch(setAsAdmin()),
   }
 }
 
