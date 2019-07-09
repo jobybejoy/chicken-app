@@ -3,16 +3,91 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
+const algoliasearch = require('algoliasearch')
+const env = functions.config()
+
 const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
+const client = algoliasearch(env.algolia.appid, env.algolia.apikey)
+
 var db = admin.firestore();
+
+const emailIndex = client.initIndex('email_search')
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 
+
+exports.indexEmail = functions.firestore
+  .document('users/{userId}')
+  .onCreate((snap, context) => {
+    const data = snap.data();
+    const objectID = snap.id;
+
+    return emailIndex.addObject({
+      objectID,
+      ...data
+    })
+  })
+
+exports.unindexEmail = functions.firestore
+  .document('users/{userId}')
+  .onDelete((snap, context) => {
+    const objectID = snap.id;
+    // Delete ID from the index
+    return emailIndex.deleteObject(objectID);
+  })
+
+exports.newUser = functions.firestore
+  .document('users/{userId}')
+  .onCreate((snap, context) => {
+    const user = snap.data();
+
+    // access a particular field as you would any JS property
+    const uRef = db.collection('users').doc(context.params.userId);
+    uRef.set({
+      roles: {
+        user: true,
+        currentRole: 'user'
+      }
+    }, { merge: true })
+    // .then(() => {
+    //   return true
+    // })
+    // .catch(() => {
+    //   return false
+    // });
+
+  });
+
+
+
 // TODO Add the order Listing with the users!
-// TODO Reduce the count from total 
+// TODO Reduce the count from total
+
+
+exports.addAdminRole = functions.https.onRequest((request, response) => {
+  console.log('Hit Function');
+
+  cors(request, response, () => {
+
+    const email = request.body.email
+    console.log('Got Email', email);
+    return admin.auth().getUserByEmail(email)
+      .then((user) => {
+        console.log('Got User', user);
+        return admin.auth().setCustomUserClaims(user.uid, {
+          admin: true
+        });
+      }).then(() => {
+        const message = `Success! ${email} has been made an admin`
+        return response.status(200).send(message);
+      })
+      .catch((error) => { return error })
+  })
+})
+
 
 
 //Order Functions
@@ -67,10 +142,12 @@ exports.submitOrder = functions.https.onRequest((request, response) => {
               const timestamp = admin.firestore.FieldValue.serverTimestamp()
 
               // console.log('USER', user);
+              // * Functions fails at times mybe bcoz user obj. doesnt reach in time
 
               const newOrder = {
                 ...order,
                 order_id: order_id,
+                status: 'pending',
                 user: {
                   name: user.displayName,
                   photoURL: user.photoURL,
